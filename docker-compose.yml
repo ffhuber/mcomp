@@ -1,0 +1,28 @@
+version: '2'
+services:
+
+ mdl:
+  build: mdl
+  ports:
+   - "80:80"
+  depends_on:
+   - nfs
+   - mysql
+
+ nfs:
+  build: nfs
+  ports:
+  - "111:111"
+  - "2049:2049"
+
+ mysql:
+  image: mysql:latest
+  expose:
+  - "3306"
+  ports:
+  - "3307:3306"
+  environment:
+   MYSQL_ROOT_PASSWORD: Pearson
+   MYSQL_DATABASE: moodle
+   MYSQL_USER: moodle
+   MYSQL_PASSWORD: Pearson

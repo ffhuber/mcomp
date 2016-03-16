@@ -1,0 +1,13 @@
+version: '2'
+services:
+ mdl:
+  build: mdl
+  ports:
+  - "80:80"
+  depends_on:
+  - nfs
+ nfs:
+  build: nfs
+  ports:
+  - "111:111"
+  - "2049:2049"
