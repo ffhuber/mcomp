@@ -14,3 +14,4 @@ VOLUME /exports
 EXPOSE 111/udp 2049/tcp
 
 ENTRYPOINT ["/usr/local/bin/nfs_setup"]
+CMD ["/exports"]

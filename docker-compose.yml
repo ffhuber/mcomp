@@ -4,10 +4,14 @@ services:
  mdl:
   build: mdl
   ports:
-   - "80:80"
+   - "81:80"
   depends_on:
    - nfs
    - mysql
+  environment:
+    MDL_USERNAME: padmin
+    MDL_PASSWORD: password
+    MDL_HOSTNAME: www.pulse.pearson.com
 
  nfs:
   build: nfs

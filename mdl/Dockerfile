@@ -1,51 +1,38 @@
-FROM ubuntu:14.04
+FROM php:5.6-apache
 
-# Keep upstart from complaining
-RUN dpkg-divert --local --rename --add /sbin/initctl
-RUN ln -sf /bin/true /sbin/initctl
+RUN apt-get update && apt-get install -y libpng12-dev libjpeg-dev git && rm -rf /var/lib/apt/lists/* \
+  && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
+  && docker-php-ext-install gd mysqli
 
-# Let the conatiner know that there is no tty
-ENV DEBIAN_FRONTEND noninteractive
+#RUN mkdir -p /var/www/html \
 
-RUN apt-get update
-RUN apt-get -y upgrade
- 
-# Basic Requirements
-# RUN apt-get -y install mysql-server mysql-client pwgen python-setuptools curl git unzip mc
-RUN apt-get -y install telnet mysql-client pwgen python-setuptools curl git unzip mc
+#  chown -R www-data:www-data /var/www/html/moodle
+#  && git clone -b MOODLE_30_STABLE --single-branch https://github.com/moodle/moodle.git && cd moodle && git checkout tags/v3.0.3 \
 
-# Moodle Requirements
-RUN apt-get -y install apache2 php5 php5-redis php5-gd libapache2-mod-php5 postfix wget supervisor php5-pgsql vim curl libcurl3 libcurl3-dev php5-curl php5-xmlrpc php5-intl php5-mysql
+RUN git clone https://AndyMoore111@bitbucket.org/AndyMoore111/mdlconf.git
 
-# SSH
-RUN apt-get -y install openssh-server
-RUN mkdir -p /var/run/sshd
 
-# mysql config
-# RUN sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
+RUN \
+  mkdir -p /var/www/html && \
+  curl -sL https://download.moodle.org/download.php/direct/stable30/moodle-3.0.3.tgz | \ 
+  tar -zxf - -C /var/www/html
 
-RUN easy_install supervisor
-ADD ./start.sh /start.sh
-ADD ./foreground.sh /etc/apache2/foreground.sh
-ADD ./supervisord.conf /etc/supervisord.conf
-
-ADD https://download.moodle.org/moodle/moodle-latest.tgz /var/www/moodle-latest.tgz
-RUN cd /var/www; tar zxvf moodle-latest.tgz; mv /var/www/moodle /var/www/html
-RUN chown -R www-data:www-data /var/www/html/moodle
+ADD repo-key /
+RUN \
+  mkdir -p /var/www/html/conf && \
+  chmod 600 /repo-key && \  
+  echo "IdentityFile /repo-key" >> /etc/ssh/ssh_config && \  
+  echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \ 
+  git clone git@bitbucket.org:AndyMoore111/mdlconf.git /var/www/html/conf && \
+  mv /var/www/html/conf/config.php /var/www/html/moodle && \
+  rm -rf /var/www/html/conf && \
+  chown -R www-data:www-data /var/www/html/moodle
 
 RUN mkdir /var/moodledata
 RUN chown -R www-data:www-data /var/moodledata; chmod 777 /var/moodledata
 
-# Tenancy 3 (optional)
-# RUN mkdir /var/moodledata0
-# RUN chown -R www-data:www-data /var/moodledata0; chmod 777 /var/moodledata0
-# RUN mkdir /var/moodledata1
-# RUN chown -R www-data:www-data /var/moodledata1; chmod 777 /var/moodledata1
-# RUN mkdir /var/moodledata2
-# RUN chown -R www-data:www-data /var/moodledata2; chmod 777 /var/moodledata2
+COPY entrypoint.sh /tmp/entrypoint.sh
+RUN chmod 755 /tmp/entrypoint.sh
 
-RUN chmod 755 /start.sh /etc/apache2/foreground.sh
-
-EXPOSE 22 80
-CMD ["/bin/bash", "/start.sh"]
-
+ENTRYPOINT ["/tmp/entrypoint.sh"]
+CMD ["apache2-foreground"]
