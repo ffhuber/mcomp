@@ -20,13 +20,17 @@ SET time_zone = "+00:00";
 -- Database: `moodle303`
 --
 
+create database if not exists moodle;
+
+use `moodle`;
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `mdl_assign`
 --
 
-CREATE TABLE `mdl_assign` (
+CREATE TABLE if not exists `mdl_assign` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -66,7 +70,7 @@ CREATE TABLE `mdl_assign` (
 -- Table structure for table `mdl_assignfeedback_comments`
 --
 
-CREATE TABLE `mdl_assignfeedback_comments` (
+CREATE TABLE if not exists `mdl_assignfeedback_comments` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `assignment` bigint(10) NOT NULL DEFAULT '0',
   `grade` bigint(10) NOT NULL DEFAULT '0',
@@ -83,7 +87,7 @@ CREATE TABLE `mdl_assignfeedback_comments` (
 -- Table structure for table `mdl_assignfeedback_editpdf_annot`
 --
 
-CREATE TABLE `mdl_assignfeedback_editpdf_annot` (
+CREATE TABLE if not exists `mdl_assignfeedback_editpdf_annot` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `gradeid` bigint(10) NOT NULL DEFAULT '0',
   `pageno` bigint(10) NOT NULL DEFAULT '0',
@@ -106,7 +110,7 @@ CREATE TABLE `mdl_assignfeedback_editpdf_annot` (
 -- Table structure for table `mdl_assignfeedback_editpdf_cmnt`
 --
 
-CREATE TABLE `mdl_assignfeedback_editpdf_cmnt` (
+CREATE TABLE if not exists `mdl_assignfeedback_editpdf_cmnt` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `gradeid` bigint(10) NOT NULL DEFAULT '0',
   `x` bigint(10) DEFAULT '0',
@@ -127,7 +131,7 @@ CREATE TABLE `mdl_assignfeedback_editpdf_cmnt` (
 -- Table structure for table `mdl_assignfeedback_editpdf_quick`
 --
 
-CREATE TABLE `mdl_assignfeedback_editpdf_quick` (
+CREATE TABLE if not exists `mdl_assignfeedback_editpdf_quick` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `rawtext` longtext COLLATE utf8_unicode_ci NOT NULL,
@@ -143,7 +147,7 @@ CREATE TABLE `mdl_assignfeedback_editpdf_quick` (
 -- Table structure for table `mdl_assignfeedback_file`
 --
 
-CREATE TABLE `mdl_assignfeedback_file` (
+CREATE TABLE if not exists `mdl_assignfeedback_file` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `assignment` bigint(10) NOT NULL DEFAULT '0',
   `grade` bigint(10) NOT NULL DEFAULT '0',
@@ -159,7 +163,7 @@ CREATE TABLE `mdl_assignfeedback_file` (
 -- Table structure for table `mdl_assignment`
 --
 
-CREATE TABLE `mdl_assignment` (
+CREATE TABLE if not exists `mdl_assignment` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -189,7 +193,7 @@ CREATE TABLE `mdl_assignment` (
 -- Table structure for table `mdl_assignment_submissions`
 --
 
-CREATE TABLE `mdl_assignment_submissions` (
+CREATE TABLE if not exists `mdl_assignment_submissions` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `assignment` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -217,7 +221,7 @@ CREATE TABLE `mdl_assignment_submissions` (
 -- Table structure for table `mdl_assignment_upgrade`
 --
 
-CREATE TABLE `mdl_assignment_upgrade` (
+CREATE TABLE if not exists `mdl_assignment_upgrade` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `oldcmid` bigint(10) NOT NULL DEFAULT '0',
   `oldinstance` bigint(10) NOT NULL DEFAULT '0',
@@ -235,7 +239,7 @@ CREATE TABLE `mdl_assignment_upgrade` (
 -- Table structure for table `mdl_assignsubmission_file`
 --
 
-CREATE TABLE `mdl_assignsubmission_file` (
+CREATE TABLE if not exists `mdl_assignsubmission_file` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `assignment` bigint(10) NOT NULL DEFAULT '0',
   `submission` bigint(10) NOT NULL DEFAULT '0',
@@ -251,7 +255,7 @@ CREATE TABLE `mdl_assignsubmission_file` (
 -- Table structure for table `mdl_assignsubmission_onlinetext`
 --
 
-CREATE TABLE `mdl_assignsubmission_onlinetext` (
+CREATE TABLE if not exists `mdl_assignsubmission_onlinetext` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `assignment` bigint(10) NOT NULL DEFAULT '0',
   `submission` bigint(10) NOT NULL DEFAULT '0',
@@ -268,7 +272,7 @@ CREATE TABLE `mdl_assignsubmission_onlinetext` (
 -- Table structure for table `mdl_assign_grades`
 --
 
-CREATE TABLE `mdl_assign_grades` (
+CREATE TABLE if not exists `mdl_assign_grades` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `assignment` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -290,7 +294,7 @@ CREATE TABLE `mdl_assign_grades` (
 -- Table structure for table `mdl_assign_plugin_config`
 --
 
-CREATE TABLE `mdl_assign_plugin_config` (
+CREATE TABLE if not exists `mdl_assign_plugin_config` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `assignment` bigint(10) NOT NULL DEFAULT '0',
   `plugin` varchar(28) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -310,7 +314,7 @@ CREATE TABLE `mdl_assign_plugin_config` (
 -- Table structure for table `mdl_assign_submission`
 --
 
-CREATE TABLE `mdl_assign_submission` (
+CREATE TABLE if not exists `mdl_assign_submission` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `assignment` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -334,7 +338,7 @@ CREATE TABLE `mdl_assign_submission` (
 -- Table structure for table `mdl_assign_user_flags`
 --
 
-CREATE TABLE `mdl_assign_user_flags` (
+CREATE TABLE if not exists `mdl_assign_user_flags` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `assignment` bigint(10) NOT NULL DEFAULT '0',
@@ -355,7 +359,7 @@ CREATE TABLE `mdl_assign_user_flags` (
 -- Table structure for table `mdl_assign_user_mapping`
 --
 
-CREATE TABLE `mdl_assign_user_mapping` (
+CREATE TABLE if not exists `mdl_assign_user_mapping` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `assignment` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -370,7 +374,7 @@ CREATE TABLE `mdl_assign_user_mapping` (
 -- Table structure for table `mdl_backup_controllers`
 --
 
-CREATE TABLE `mdl_backup_controllers` (
+CREATE TABLE if not exists `mdl_backup_controllers` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `backupid` varchar(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `operation` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'backup',
@@ -399,7 +403,7 @@ CREATE TABLE `mdl_backup_controllers` (
 -- Table structure for table `mdl_backup_courses`
 --
 
-CREATE TABLE `mdl_backup_courses` (
+CREATE TABLE if not exists `mdl_backup_courses` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `courseid` bigint(10) NOT NULL DEFAULT '0',
   `laststarttime` bigint(10) NOT NULL DEFAULT '0',
@@ -416,7 +420,7 @@ CREATE TABLE `mdl_backup_courses` (
 -- Table structure for table `mdl_backup_logs`
 --
 
-CREATE TABLE `mdl_backup_logs` (
+CREATE TABLE if not exists `mdl_backup_logs` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `backupid` varchar(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `loglevel` smallint(4) NOT NULL,
@@ -433,7 +437,7 @@ CREATE TABLE `mdl_backup_logs` (
 -- Table structure for table `mdl_badge`
 --
 
-CREATE TABLE `mdl_badge` (
+CREATE TABLE if not exists `mdl_badge` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `description` longtext COLLATE utf8_unicode_ci,
@@ -467,7 +471,7 @@ CREATE TABLE `mdl_badge` (
 -- Table structure for table `mdl_badge_backpack`
 --
 
-CREATE TABLE `mdl_badge_backpack` (
+CREATE TABLE if not exists `mdl_badge_backpack` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -485,7 +489,7 @@ CREATE TABLE `mdl_badge_backpack` (
 -- Table structure for table `mdl_badge_criteria`
 --
 
-CREATE TABLE `mdl_badge_criteria` (
+CREATE TABLE if not exists `mdl_badge_criteria` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `badgeid` bigint(10) NOT NULL DEFAULT '0',
   `criteriatype` bigint(10) DEFAULT NULL,
@@ -504,7 +508,7 @@ CREATE TABLE `mdl_badge_criteria` (
 -- Table structure for table `mdl_badge_criteria_met`
 --
 
-CREATE TABLE `mdl_badge_criteria_met` (
+CREATE TABLE if not exists `mdl_badge_criteria_met` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `issuedid` bigint(10) DEFAULT NULL,
   `critid` bigint(10) NOT NULL,
@@ -522,7 +526,7 @@ CREATE TABLE `mdl_badge_criteria_met` (
 -- Table structure for table `mdl_badge_criteria_param`
 --
 
-CREATE TABLE `mdl_badge_criteria_param` (
+CREATE TABLE if not exists `mdl_badge_criteria_param` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `critid` bigint(10) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -537,7 +541,7 @@ CREATE TABLE `mdl_badge_criteria_param` (
 -- Table structure for table `mdl_badge_external`
 --
 
-CREATE TABLE `mdl_badge_external` (
+CREATE TABLE if not exists `mdl_badge_external` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `backpackid` bigint(10) NOT NULL,
   `collectionid` bigint(10) NOT NULL,
@@ -551,7 +555,7 @@ CREATE TABLE `mdl_badge_external` (
 -- Table structure for table `mdl_badge_issued`
 --
 
-CREATE TABLE `mdl_badge_issued` (
+CREATE TABLE if not exists `mdl_badge_issued` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `badgeid` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -572,7 +576,7 @@ CREATE TABLE `mdl_badge_issued` (
 -- Table structure for table `mdl_badge_manual_award`
 --
 
-CREATE TABLE `mdl_badge_manual_award` (
+CREATE TABLE if not exists `mdl_badge_manual_award` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `badgeid` bigint(10) NOT NULL,
   `recipientid` bigint(10) NOT NULL,
@@ -592,7 +596,7 @@ CREATE TABLE `mdl_badge_manual_award` (
 -- Table structure for table `mdl_block`
 --
 
-CREATE TABLE `mdl_block` (
+CREATE TABLE if not exists `mdl_block` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(40) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `cron` bigint(10) NOT NULL DEFAULT '0',
@@ -654,7 +658,7 @@ INSERT INTO `mdl_block` (`id`, `name`, `cron`, `lastcron`, `visible`) VALUES
 -- Table structure for table `mdl_block_community`
 --
 
-CREATE TABLE `mdl_block_community` (
+CREATE TABLE if not exists `mdl_block_community` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL,
   `coursename` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -670,7 +674,7 @@ CREATE TABLE `mdl_block_community` (
 -- Table structure for table `mdl_block_instances`
 --
 
-CREATE TABLE `mdl_block_instances` (
+CREATE TABLE if not exists `mdl_block_instances` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `blockname` varchar(40) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `parentcontextid` bigint(10) NOT NULL,
@@ -715,7 +719,7 @@ INSERT INTO `mdl_block_instances` (`id`, `blockname`, `parentcontextid`, `showin
 -- Table structure for table `mdl_block_positions`
 --
 
-CREATE TABLE `mdl_block_positions` (
+CREATE TABLE if not exists `mdl_block_positions` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `blockinstanceid` bigint(10) NOT NULL,
   `contextid` bigint(10) NOT NULL,
@@ -736,7 +740,7 @@ CREATE TABLE `mdl_block_positions` (
 -- Table structure for table `mdl_block_recent_activity`
 --
 
-CREATE TABLE `mdl_block_recent_activity` (
+CREATE TABLE if not exists `mdl_block_recent_activity` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `courseid` bigint(10) NOT NULL,
   `cmid` bigint(10) NOT NULL,
@@ -754,7 +758,7 @@ CREATE TABLE `mdl_block_recent_activity` (
 -- Table structure for table `mdl_block_rss_client`
 --
 
-CREATE TABLE `mdl_block_rss_client` (
+CREATE TABLE if not exists `mdl_block_rss_client` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `title` longtext COLLATE utf8_unicode_ci NOT NULL,
@@ -773,7 +777,7 @@ CREATE TABLE `mdl_block_rss_client` (
 -- Table structure for table `mdl_blog_association`
 --
 
-CREATE TABLE `mdl_blog_association` (
+CREATE TABLE if not exists `mdl_blog_association` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `contextid` bigint(10) NOT NULL,
   `blogid` bigint(10) NOT NULL,
@@ -788,7 +792,7 @@ CREATE TABLE `mdl_blog_association` (
 -- Table structure for table `mdl_blog_external`
 --
 
-CREATE TABLE `mdl_blog_external` (
+CREATE TABLE if not exists `mdl_blog_external` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -808,7 +812,7 @@ CREATE TABLE `mdl_blog_external` (
 -- Table structure for table `mdl_book`
 --
 
-CREATE TABLE `mdl_book` (
+CREATE TABLE if not exists `mdl_book` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -829,7 +833,7 @@ CREATE TABLE `mdl_book` (
 -- Table structure for table `mdl_book_chapters`
 --
 
-CREATE TABLE `mdl_book_chapters` (
+CREATE TABLE if not exists `mdl_book_chapters` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `bookid` bigint(10) NOT NULL DEFAULT '0',
   `pagenum` bigint(10) NOT NULL DEFAULT '0',
@@ -850,7 +854,7 @@ CREATE TABLE `mdl_book_chapters` (
 -- Table structure for table `mdl_cache_filters`
 --
 
-CREATE TABLE `mdl_cache_filters` (
+CREATE TABLE if not exists `mdl_cache_filters` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `filter` varchar(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `version` bigint(10) NOT NULL DEFAULT '0',
@@ -867,7 +871,7 @@ CREATE TABLE `mdl_cache_filters` (
 -- Table structure for table `mdl_cache_flags`
 --
 
-CREATE TABLE `mdl_cache_flags` (
+CREATE TABLE if not exists `mdl_cache_flags` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `flagtype` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -892,7 +896,7 @@ INSERT INTO `mdl_cache_flags` (`id`, `flagtype`, `name`, `timemodified`, `value`
 -- Table structure for table `mdl_capabilities`
 --
 
-CREATE TABLE `mdl_capabilities` (
+CREATE TABLE if not exists `mdl_capabilities` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `captype` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -1443,7 +1447,7 @@ INSERT INTO `mdl_capabilities` (`id`, `name`, `captype`, `contextlevel`, `compon
 -- Table structure for table `mdl_chat`
 --
 
-CREATE TABLE `mdl_chat` (
+CREATE TABLE if not exists `mdl_chat` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -1464,7 +1468,7 @@ CREATE TABLE `mdl_chat` (
 -- Table structure for table `mdl_chat_messages`
 --
 
-CREATE TABLE `mdl_chat_messages` (
+CREATE TABLE if not exists `mdl_chat_messages` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `chatid` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -1485,7 +1489,7 @@ CREATE TABLE `mdl_chat_messages` (
 -- Table structure for table `mdl_chat_messages_current`
 --
 
-CREATE TABLE `mdl_chat_messages_current` (
+CREATE TABLE if not exists `mdl_chat_messages_current` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `chatid` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -1506,7 +1510,7 @@ CREATE TABLE `mdl_chat_messages_current` (
 -- Table structure for table `mdl_chat_users`
 --
 
-CREATE TABLE `mdl_chat_users` (
+CREATE TABLE if not exists `mdl_chat_users` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `chatid` bigint(11) NOT NULL DEFAULT '0',
   `userid` bigint(11) NOT NULL DEFAULT '0',
@@ -1532,7 +1536,7 @@ CREATE TABLE `mdl_chat_users` (
 -- Table structure for table `mdl_choice`
 --
 
-CREATE TABLE `mdl_choice` (
+CREATE TABLE if not exists `mdl_choice` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -1561,7 +1565,7 @@ CREATE TABLE `mdl_choice` (
 -- Table structure for table `mdl_choice_answers`
 --
 
-CREATE TABLE `mdl_choice_answers` (
+CREATE TABLE if not exists `mdl_choice_answers` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `choiceid` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -1579,7 +1583,7 @@ CREATE TABLE `mdl_choice_answers` (
 -- Table structure for table `mdl_choice_options`
 --
 
-CREATE TABLE `mdl_choice_options` (
+CREATE TABLE if not exists `mdl_choice_options` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `choiceid` bigint(10) NOT NULL DEFAULT '0',
   `text` longtext COLLATE utf8_unicode_ci,
@@ -1595,7 +1599,7 @@ CREATE TABLE `mdl_choice_options` (
 -- Table structure for table `mdl_cohort`
 --
 
-CREATE TABLE `mdl_cohort` (
+CREATE TABLE if not exists `mdl_cohort` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `contextid` bigint(10) NOT NULL,
   `name` varchar(254) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -1616,7 +1620,7 @@ CREATE TABLE `mdl_cohort` (
 -- Table structure for table `mdl_cohort_members`
 --
 
-CREATE TABLE `mdl_cohort_members` (
+CREATE TABLE if not exists `mdl_cohort_members` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `cohortid` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -1633,7 +1637,7 @@ CREATE TABLE `mdl_cohort_members` (
 -- Table structure for table `mdl_comments`
 --
 
-CREATE TABLE `mdl_comments` (
+CREATE TABLE if not exists `mdl_comments` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `contextid` bigint(10) NOT NULL,
   `component` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -1652,7 +1656,7 @@ CREATE TABLE `mdl_comments` (
 -- Table structure for table `mdl_config`
 --
 
-CREATE TABLE `mdl_config` (
+CREATE TABLE if not exists `mdl_config` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `value` longtext COLLATE utf8_unicode_ci NOT NULL,
@@ -2141,7 +2145,7 @@ INSERT INTO `mdl_config` (`id`, `name`, `value`) VALUES
 -- Table structure for table `mdl_config_log`
 --
 
-CREATE TABLE `mdl_config_log` (
+CREATE TABLE if not exists `mdl_config_log` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL,
   `timemodified` bigint(10) NOT NULL,
@@ -3122,7 +3126,7 @@ INSERT INTO `mdl_config_log` (`id`, `userid`, `timemodified`, `plugin`, `name`, 
 -- Table structure for table `mdl_config_plugins`
 --
 
-CREATE TABLE `mdl_config_plugins` (
+CREATE TABLE if not exists `mdl_config_plugins` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `plugin` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'core',
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -4222,7 +4226,7 @@ INSERT INTO `mdl_config_plugins` (`id`, `plugin`, `name`, `value`) VALUES
 -- Table structure for table `mdl_context`
 --
 
-CREATE TABLE `mdl_context` (
+CREATE TABLE if not exists `mdl_context` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `contextlevel` bigint(10) NOT NULL DEFAULT '0',
   `instanceid` bigint(10) NOT NULL DEFAULT '0',
@@ -4269,7 +4273,7 @@ INSERT INTO `mdl_context` (`id`, `contextlevel`, `instanceid`, `path`, `depth`) 
 -- Table structure for table `mdl_context_temp`
 --
 
-CREATE TABLE `mdl_context_temp` (
+CREATE TABLE if not exists `mdl_context_temp` (
   `id` bigint(10) NOT NULL,
   `path` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `depth` tinyint(2) NOT NULL,
@@ -4282,7 +4286,7 @@ CREATE TABLE `mdl_context_temp` (
 -- Table structure for table `mdl_course`
 --
 
-CREATE TABLE `mdl_course` (
+CREATE TABLE if not exists `mdl_course` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `category` bigint(10) NOT NULL DEFAULT '0',
   `sortorder` bigint(10) NOT NULL DEFAULT '0',
@@ -4333,7 +4337,7 @@ INSERT INTO `mdl_course` (`id`, `category`, `sortorder`, `fullname`, `shortname`
 -- Table structure for table `mdl_course_categories`
 --
 
-CREATE TABLE `mdl_course_categories` (
+CREATE TABLE if not exists `mdl_course_categories` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `idnumber` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -4365,7 +4369,7 @@ INSERT INTO `mdl_course_categories` (`id`, `name`, `idnumber`, `description`, `d
 -- Table structure for table `mdl_course_completions`
 --
 
-CREATE TABLE `mdl_course_completions` (
+CREATE TABLE if not exists `mdl_course_completions` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `course` bigint(10) NOT NULL DEFAULT '0',
@@ -4386,7 +4390,7 @@ CREATE TABLE `mdl_course_completions` (
 -- Table structure for table `mdl_course_completion_aggr_methd`
 --
 
-CREATE TABLE `mdl_course_completion_aggr_methd` (
+CREATE TABLE if not exists `mdl_course_completion_aggr_methd` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `criteriatype` bigint(10) DEFAULT NULL,
@@ -4404,7 +4408,7 @@ CREATE TABLE `mdl_course_completion_aggr_methd` (
 -- Table structure for table `mdl_course_completion_criteria`
 --
 
-CREATE TABLE `mdl_course_completion_criteria` (
+CREATE TABLE if not exists `mdl_course_completion_criteria` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `criteriatype` bigint(10) NOT NULL DEFAULT '0',
@@ -4425,7 +4429,7 @@ CREATE TABLE `mdl_course_completion_criteria` (
 -- Table structure for table `mdl_course_completion_crit_compl`
 --
 
-CREATE TABLE `mdl_course_completion_crit_compl` (
+CREATE TABLE if not exists `mdl_course_completion_crit_compl` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `course` bigint(10) NOT NULL DEFAULT '0',
@@ -4447,7 +4451,7 @@ CREATE TABLE `mdl_course_completion_crit_compl` (
 -- Table structure for table `mdl_course_format_options`
 --
 
-CREATE TABLE `mdl_course_format_options` (
+CREATE TABLE if not exists `mdl_course_format_options` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `courseid` bigint(10) NOT NULL,
   `format` varchar(21) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -4472,7 +4476,7 @@ INSERT INTO `mdl_course_format_options` (`id`, `courseid`, `format`, `sectionid`
 -- Table structure for table `mdl_course_modules`
 --
 
-CREATE TABLE `mdl_course_modules` (
+CREATE TABLE if not exists `mdl_course_modules` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `module` bigint(10) NOT NULL DEFAULT '0',
@@ -4507,7 +4511,7 @@ CREATE TABLE `mdl_course_modules` (
 -- Table structure for table `mdl_course_modules_completion`
 --
 
-CREATE TABLE `mdl_course_modules_completion` (
+CREATE TABLE if not exists `mdl_course_modules_completion` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `coursemoduleid` bigint(10) NOT NULL,
   `userid` bigint(10) NOT NULL,
@@ -4525,7 +4529,7 @@ CREATE TABLE `mdl_course_modules_completion` (
 -- Table structure for table `mdl_course_published`
 --
 
-CREATE TABLE `mdl_course_published` (
+CREATE TABLE if not exists `mdl_course_published` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `huburl` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `courseid` bigint(10) NOT NULL,
@@ -4543,7 +4547,7 @@ CREATE TABLE `mdl_course_published` (
 -- Table structure for table `mdl_course_request`
 --
 
-CREATE TABLE `mdl_course_request` (
+CREATE TABLE if not exists `mdl_course_request` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `fullname` varchar(254) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `shortname` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -4563,7 +4567,7 @@ CREATE TABLE `mdl_course_request` (
 -- Table structure for table `mdl_course_sections`
 --
 
-CREATE TABLE `mdl_course_sections` (
+CREATE TABLE if not exists `mdl_course_sections` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `section` bigint(10) NOT NULL DEFAULT '0',
@@ -4583,7 +4587,7 @@ CREATE TABLE `mdl_course_sections` (
 -- Table structure for table `mdl_data`
 --
 
-CREATE TABLE `mdl_data` (
+CREATE TABLE if not exists `mdl_data` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -4628,7 +4632,7 @@ CREATE TABLE `mdl_data` (
 -- Table structure for table `mdl_data_content`
 --
 
-CREATE TABLE `mdl_data_content` (
+CREATE TABLE if not exists `mdl_data_content` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `fieldid` bigint(10) NOT NULL DEFAULT '0',
   `recordid` bigint(10) NOT NULL DEFAULT '0',
@@ -4648,7 +4652,7 @@ CREATE TABLE `mdl_data_content` (
 -- Table structure for table `mdl_data_fields`
 --
 
-CREATE TABLE `mdl_data_fields` (
+CREATE TABLE if not exists `mdl_data_fields` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `dataid` bigint(10) NOT NULL DEFAULT '0',
   `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -4676,7 +4680,7 @@ CREATE TABLE `mdl_data_fields` (
 -- Table structure for table `mdl_data_records`
 --
 
-CREATE TABLE `mdl_data_records` (
+CREATE TABLE if not exists `mdl_data_records` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `groupid` bigint(10) NOT NULL DEFAULT '0',
@@ -4694,7 +4698,7 @@ CREATE TABLE `mdl_data_records` (
 -- Table structure for table `mdl_editor_atto_autosave`
 --
 
-CREATE TABLE `mdl_editor_atto_autosave` (
+CREATE TABLE if not exists `mdl_editor_atto_autosave` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `elementid` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `contextid` bigint(10) NOT NULL,
@@ -4714,7 +4718,7 @@ CREATE TABLE `mdl_editor_atto_autosave` (
 -- Table structure for table `mdl_enrol`
 --
 
-CREATE TABLE `mdl_enrol` (
+CREATE TABLE if not exists `mdl_enrol` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `enrol` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `status` bigint(10) NOT NULL DEFAULT '0',
@@ -4761,7 +4765,7 @@ CREATE TABLE `mdl_enrol` (
 -- Table structure for table `mdl_enrol_flatfile`
 --
 
-CREATE TABLE `mdl_enrol_flatfile` (
+CREATE TABLE if not exists `mdl_enrol_flatfile` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `action` varchar(30) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `roleid` bigint(10) NOT NULL,
@@ -4782,7 +4786,7 @@ CREATE TABLE `mdl_enrol_flatfile` (
 -- Table structure for table `mdl_enrol_paypal`
 --
 
-CREATE TABLE `mdl_enrol_paypal` (
+CREATE TABLE if not exists `mdl_enrol_paypal` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `business` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `receiver_email` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -4813,7 +4817,7 @@ CREATE TABLE `mdl_enrol_paypal` (
 -- Table structure for table `mdl_event`
 --
 
-CREATE TABLE `mdl_event` (
+CREATE TABLE if not exists `mdl_event` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` longtext COLLATE utf8_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8_unicode_ci NOT NULL,
@@ -4846,7 +4850,7 @@ CREATE TABLE `mdl_event` (
 -- Table structure for table `mdl_events_handlers`
 --
 
-CREATE TABLE `mdl_events_handlers` (
+CREATE TABLE if not exists `mdl_events_handlers` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `eventname` varchar(166) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `component` varchar(166) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -4865,7 +4869,7 @@ CREATE TABLE `mdl_events_handlers` (
 -- Table structure for table `mdl_events_queue`
 --
 
-CREATE TABLE `mdl_events_queue` (
+CREATE TABLE if not exists `mdl_events_queue` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `eventdata` longtext COLLATE utf8_unicode_ci NOT NULL,
   `stackdump` longtext COLLATE utf8_unicode_ci,
@@ -4881,7 +4885,7 @@ CREATE TABLE `mdl_events_queue` (
 -- Table structure for table `mdl_events_queue_handlers`
 --
 
-CREATE TABLE `mdl_events_queue_handlers` (
+CREATE TABLE if not exists `mdl_events_queue_handlers` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `queuedeventid` bigint(10) NOT NULL,
   `handlerid` bigint(10) NOT NULL,
@@ -4899,7 +4903,7 @@ CREATE TABLE `mdl_events_queue_handlers` (
 -- Table structure for table `mdl_event_subscriptions`
 --
 
-CREATE TABLE `mdl_event_subscriptions` (
+CREATE TABLE if not exists `mdl_event_subscriptions` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `courseid` bigint(10) NOT NULL DEFAULT '0',
@@ -4918,7 +4922,7 @@ CREATE TABLE `mdl_event_subscriptions` (
 -- Table structure for table `mdl_external_functions`
 --
 
-CREATE TABLE `mdl_external_functions` (
+CREATE TABLE if not exists `mdl_external_functions` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `classname` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -5134,7 +5138,7 @@ INSERT INTO `mdl_external_functions` (`id`, `name`, `classname`, `methodname`, `
 -- Table structure for table `mdl_external_services`
 --
 
-CREATE TABLE `mdl_external_services` (
+CREATE TABLE if not exists `mdl_external_services` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `enabled` tinyint(1) NOT NULL,
@@ -5163,7 +5167,7 @@ INSERT INTO `mdl_external_services` (`id`, `name`, `enabled`, `requiredcapabilit
 -- Table structure for table `mdl_external_services_functions`
 --
 
-CREATE TABLE `mdl_external_services_functions` (
+CREATE TABLE if not exists `mdl_external_services_functions` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `externalserviceid` bigint(10) NOT NULL,
   `functionname` varchar(200) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -5298,7 +5302,7 @@ INSERT INTO `mdl_external_services_functions` (`id`, `externalserviceid`, `funct
 -- Table structure for table `mdl_external_services_users`
 --
 
-CREATE TABLE `mdl_external_services_users` (
+CREATE TABLE if not exists `mdl_external_services_users` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `externalserviceid` bigint(10) NOT NULL,
   `userid` bigint(10) NOT NULL,
@@ -5316,7 +5320,7 @@ CREATE TABLE `mdl_external_services_users` (
 -- Table structure for table `mdl_external_tokens`
 --
 
-CREATE TABLE `mdl_external_tokens` (
+CREATE TABLE if not exists `mdl_external_tokens` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `token` varchar(128) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `tokentype` smallint(4) NOT NULL,
@@ -5342,7 +5346,7 @@ CREATE TABLE `mdl_external_tokens` (
 -- Table structure for table `mdl_feedback`
 --
 
-CREATE TABLE `mdl_feedback` (
+CREATE TABLE if not exists `mdl_feedback` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -5370,7 +5374,7 @@ CREATE TABLE `mdl_feedback` (
 -- Table structure for table `mdl_feedback_completed`
 --
 
-CREATE TABLE `mdl_feedback_completed` (
+CREATE TABLE if not exists `mdl_feedback_completed` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `feedback` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -5388,7 +5392,7 @@ CREATE TABLE `mdl_feedback_completed` (
 -- Table structure for table `mdl_feedback_completedtmp`
 --
 
-CREATE TABLE `mdl_feedback_completedtmp` (
+CREATE TABLE if not exists `mdl_feedback_completedtmp` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `feedback` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -5407,7 +5411,7 @@ CREATE TABLE `mdl_feedback_completedtmp` (
 -- Table structure for table `mdl_feedback_item`
 --
 
-CREATE TABLE `mdl_feedback_item` (
+CREATE TABLE if not exists `mdl_feedback_item` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `feedback` bigint(10) NOT NULL DEFAULT '0',
   `template` bigint(10) NOT NULL DEFAULT '0',
@@ -5432,7 +5436,7 @@ CREATE TABLE `mdl_feedback_item` (
 -- Table structure for table `mdl_feedback_sitecourse_map`
 --
 
-CREATE TABLE `mdl_feedback_sitecourse_map` (
+CREATE TABLE if not exists `mdl_feedback_sitecourse_map` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `feedbackid` bigint(10) NOT NULL DEFAULT '0',
   `courseid` bigint(10) NOT NULL DEFAULT '0',
@@ -5447,7 +5451,7 @@ CREATE TABLE `mdl_feedback_sitecourse_map` (
 -- Table structure for table `mdl_feedback_template`
 --
 
-CREATE TABLE `mdl_feedback_template` (
+CREATE TABLE if not exists `mdl_feedback_template` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `ispublic` tinyint(1) NOT NULL DEFAULT '0',
@@ -5462,7 +5466,7 @@ CREATE TABLE `mdl_feedback_template` (
 -- Table structure for table `mdl_feedback_tracking`
 --
 
-CREATE TABLE `mdl_feedback_tracking` (
+CREATE TABLE if not exists `mdl_feedback_tracking` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `feedback` bigint(10) NOT NULL DEFAULT '0',
@@ -5480,7 +5484,7 @@ CREATE TABLE `mdl_feedback_tracking` (
 -- Table structure for table `mdl_feedback_value`
 --
 
-CREATE TABLE `mdl_feedback_value` (
+CREATE TABLE if not exists `mdl_feedback_value` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course_id` bigint(10) NOT NULL DEFAULT '0',
   `item` bigint(10) NOT NULL DEFAULT '0',
@@ -5498,7 +5502,7 @@ CREATE TABLE `mdl_feedback_value` (
 -- Table structure for table `mdl_feedback_valuetmp`
 --
 
-CREATE TABLE `mdl_feedback_valuetmp` (
+CREATE TABLE if not exists `mdl_feedback_valuetmp` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course_id` bigint(10) NOT NULL DEFAULT '0',
   `item` bigint(10) NOT NULL DEFAULT '0',
@@ -5516,7 +5520,7 @@ CREATE TABLE `mdl_feedback_valuetmp` (
 -- Table structure for table `mdl_files`
 --
 
-CREATE TABLE `mdl_files` (
+CREATE TABLE if not exists `mdl_files` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `contenthash` varchar(40) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `pathnamehash` varchar(40) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -5565,7 +5569,7 @@ INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `comp
 -- Table structure for table `mdl_files_reference`
 --
 
-CREATE TABLE `mdl_files_reference` (
+CREATE TABLE if not exists `mdl_files_reference` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `repositoryid` bigint(10) NOT NULL,
   `lastsync` bigint(10) DEFAULT NULL,
@@ -5582,7 +5586,7 @@ CREATE TABLE `mdl_files_reference` (
 -- Table structure for table `mdl_filter_active`
 --
 
-CREATE TABLE `mdl_filter_active` (
+CREATE TABLE if not exists `mdl_filter_active` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `filter` varchar(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `contextid` bigint(10) NOT NULL,
@@ -5608,7 +5612,7 @@ INSERT INTO `mdl_filter_active` (`id`, `filter`, `contextid`, `active`, `sortord
 -- Table structure for table `mdl_filter_config`
 --
 
-CREATE TABLE `mdl_filter_config` (
+CREATE TABLE if not exists `mdl_filter_config` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `filter` varchar(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `contextid` bigint(10) NOT NULL,
@@ -5625,7 +5629,7 @@ CREATE TABLE `mdl_filter_config` (
 -- Table structure for table `mdl_folder`
 --
 
-CREATE TABLE `mdl_folder` (
+CREATE TABLE if not exists `mdl_folder` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -5645,7 +5649,7 @@ CREATE TABLE `mdl_folder` (
 -- Table structure for table `mdl_forum`
 --
 
-CREATE TABLE `mdl_forum` (
+CREATE TABLE if not exists `mdl_forum` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `type` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'general',
@@ -5680,7 +5684,7 @@ CREATE TABLE `mdl_forum` (
 -- Table structure for table `mdl_forum_digests`
 --
 
-CREATE TABLE `mdl_forum_digests` (
+CREATE TABLE if not exists `mdl_forum_digests` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL,
   `forum` bigint(10) NOT NULL,
@@ -5697,7 +5701,7 @@ CREATE TABLE `mdl_forum_digests` (
 -- Table structure for table `mdl_forum_discussions`
 --
 
-CREATE TABLE `mdl_forum_discussions` (
+CREATE TABLE if not exists `mdl_forum_discussions` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `forum` bigint(10) NOT NULL DEFAULT '0',
@@ -5722,7 +5726,7 @@ CREATE TABLE `mdl_forum_discussions` (
 -- Table structure for table `mdl_forum_discussion_subs`
 --
 
-CREATE TABLE `mdl_forum_discussion_subs` (
+CREATE TABLE if not exists `mdl_forum_discussion_subs` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `forum` bigint(10) NOT NULL,
   `userid` bigint(10) NOT NULL,
@@ -5741,7 +5745,7 @@ CREATE TABLE `mdl_forum_discussion_subs` (
 -- Table structure for table `mdl_forum_posts`
 --
 
-CREATE TABLE `mdl_forum_posts` (
+CREATE TABLE if not exists `mdl_forum_posts` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `discussion` bigint(10) NOT NULL DEFAULT '0',
   `parent` bigint(10) NOT NULL DEFAULT '0',
@@ -5770,7 +5774,7 @@ CREATE TABLE `mdl_forum_posts` (
 -- Table structure for table `mdl_forum_queue`
 --
 
-CREATE TABLE `mdl_forum_queue` (
+CREATE TABLE if not exists `mdl_forum_queue` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `discussionid` bigint(10) NOT NULL DEFAULT '0',
@@ -5788,7 +5792,7 @@ CREATE TABLE `mdl_forum_queue` (
 -- Table structure for table `mdl_forum_read`
 --
 
-CREATE TABLE `mdl_forum_read` (
+CREATE TABLE if not exists `mdl_forum_read` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `forumid` bigint(10) NOT NULL DEFAULT '0',
@@ -5808,7 +5812,7 @@ CREATE TABLE `mdl_forum_read` (
 -- Table structure for table `mdl_forum_subscriptions`
 --
 
-CREATE TABLE `mdl_forum_subscriptions` (
+CREATE TABLE if not exists `mdl_forum_subscriptions` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `forum` bigint(10) NOT NULL DEFAULT '0',
@@ -5823,7 +5827,7 @@ CREATE TABLE `mdl_forum_subscriptions` (
 -- Table structure for table `mdl_forum_track_prefs`
 --
 
-CREATE TABLE `mdl_forum_track_prefs` (
+CREATE TABLE if not exists `mdl_forum_track_prefs` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `forumid` bigint(10) NOT NULL DEFAULT '0',
@@ -5837,7 +5841,7 @@ CREATE TABLE `mdl_forum_track_prefs` (
 -- Table structure for table `mdl_glossary`
 --
 
-CREATE TABLE `mdl_glossary` (
+CREATE TABLE if not exists `mdl_glossary` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -5876,7 +5880,7 @@ CREATE TABLE `mdl_glossary` (
 -- Table structure for table `mdl_glossary_alias`
 --
 
-CREATE TABLE `mdl_glossary_alias` (
+CREATE TABLE if not exists `mdl_glossary_alias` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `entryid` bigint(10) NOT NULL DEFAULT '0',
   `alias` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -5890,7 +5894,7 @@ CREATE TABLE `mdl_glossary_alias` (
 -- Table structure for table `mdl_glossary_categories`
 --
 
-CREATE TABLE `mdl_glossary_categories` (
+CREATE TABLE if not exists `mdl_glossary_categories` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `glossaryid` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -5905,7 +5909,7 @@ CREATE TABLE `mdl_glossary_categories` (
 -- Table structure for table `mdl_glossary_entries`
 --
 
-CREATE TABLE `mdl_glossary_entries` (
+CREATE TABLE if not exists `mdl_glossary_entries` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `glossaryid` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -5934,7 +5938,7 @@ CREATE TABLE `mdl_glossary_entries` (
 -- Table structure for table `mdl_glossary_entries_categories`
 --
 
-CREATE TABLE `mdl_glossary_entries_categories` (
+CREATE TABLE if not exists `mdl_glossary_entries_categories` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `categoryid` bigint(10) NOT NULL DEFAULT '0',
   `entryid` bigint(10) NOT NULL DEFAULT '0',
@@ -5949,7 +5953,7 @@ CREATE TABLE `mdl_glossary_entries_categories` (
 -- Table structure for table `mdl_glossary_formats`
 --
 
-CREATE TABLE `mdl_glossary_formats` (
+CREATE TABLE if not exists `mdl_glossary_formats` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `popupformatname` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -5982,7 +5986,7 @@ INSERT INTO `mdl_glossary_formats` (`id`, `name`, `popupformatname`, `visible`, 
 -- Table structure for table `mdl_grade_categories`
 --
 
-CREATE TABLE `mdl_grade_categories` (
+CREATE TABLE if not exists `mdl_grade_categories` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `courseid` bigint(10) NOT NULL,
   `parent` bigint(10) DEFAULT NULL,
@@ -6008,7 +6012,7 @@ CREATE TABLE `mdl_grade_categories` (
 -- Table structure for table `mdl_grade_categories_history`
 --
 
-CREATE TABLE `mdl_grade_categories_history` (
+CREATE TABLE if not exists `mdl_grade_categories_history` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `action` bigint(10) NOT NULL DEFAULT '0',
   `oldid` bigint(10) NOT NULL,
@@ -6041,7 +6045,7 @@ CREATE TABLE `mdl_grade_categories_history` (
 -- Table structure for table `mdl_grade_grades`
 --
 
-CREATE TABLE `mdl_grade_grades` (
+CREATE TABLE if not exists `mdl_grade_grades` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `itemid` bigint(10) NOT NULL,
   `userid` bigint(10) NOT NULL,
@@ -6080,7 +6084,7 @@ CREATE TABLE `mdl_grade_grades` (
 -- Table structure for table `mdl_grade_grades_history`
 --
 
-CREATE TABLE `mdl_grade_grades_history` (
+CREATE TABLE if not exists `mdl_grade_grades_history` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `action` bigint(10) NOT NULL DEFAULT '0',
   `oldid` bigint(10) NOT NULL,
@@ -6122,7 +6126,7 @@ CREATE TABLE `mdl_grade_grades_history` (
 -- Table structure for table `mdl_grade_import_newitem`
 --
 
-CREATE TABLE `mdl_grade_import_newitem` (
+CREATE TABLE if not exists `mdl_grade_import_newitem` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `itemname` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `importcode` bigint(10) NOT NULL,
@@ -6137,7 +6141,7 @@ CREATE TABLE `mdl_grade_import_newitem` (
 -- Table structure for table `mdl_grade_import_values`
 --
 
-CREATE TABLE `mdl_grade_import_values` (
+CREATE TABLE if not exists `mdl_grade_import_values` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `itemid` bigint(10) DEFAULT NULL,
   `newgradeitem` bigint(10) DEFAULT NULL,
@@ -6159,7 +6163,7 @@ CREATE TABLE `mdl_grade_import_values` (
 -- Table structure for table `mdl_grade_items`
 --
 
-CREATE TABLE `mdl_grade_items` (
+CREATE TABLE if not exists `mdl_grade_items` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `courseid` bigint(10) DEFAULT NULL,
   `categoryid` bigint(10) DEFAULT NULL,
@@ -6208,7 +6212,7 @@ CREATE TABLE `mdl_grade_items` (
 -- Table structure for table `mdl_grade_items_history`
 --
 
-CREATE TABLE `mdl_grade_items_history` (
+CREATE TABLE if not exists `mdl_grade_items_history` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `action` bigint(10) NOT NULL DEFAULT '0',
   `oldid` bigint(10) NOT NULL,
@@ -6259,7 +6263,7 @@ CREATE TABLE `mdl_grade_items_history` (
 -- Table structure for table `mdl_grade_letters`
 --
 
-CREATE TABLE `mdl_grade_letters` (
+CREATE TABLE if not exists `mdl_grade_letters` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `contextid` bigint(10) NOT NULL,
   `lowerboundary` decimal(10,5) NOT NULL,
@@ -6274,7 +6278,7 @@ CREATE TABLE `mdl_grade_letters` (
 -- Table structure for table `mdl_grade_outcomes`
 --
 
-CREATE TABLE `mdl_grade_outcomes` (
+CREATE TABLE if not exists `mdl_grade_outcomes` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `courseid` bigint(10) DEFAULT NULL,
   `shortname` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -6298,7 +6302,7 @@ CREATE TABLE `mdl_grade_outcomes` (
 -- Table structure for table `mdl_grade_outcomes_courses`
 --
 
-CREATE TABLE `mdl_grade_outcomes_courses` (
+CREATE TABLE if not exists `mdl_grade_outcomes_courses` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `courseid` bigint(10) NOT NULL,
   `outcomeid` bigint(10) NOT NULL,
@@ -6314,7 +6318,7 @@ CREATE TABLE `mdl_grade_outcomes_courses` (
 -- Table structure for table `mdl_grade_outcomes_history`
 --
 
-CREATE TABLE `mdl_grade_outcomes_history` (
+CREATE TABLE if not exists `mdl_grade_outcomes_history` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `action` bigint(10) NOT NULL DEFAULT '0',
   `oldid` bigint(10) NOT NULL,
@@ -6341,7 +6345,7 @@ CREATE TABLE `mdl_grade_outcomes_history` (
 -- Table structure for table `mdl_grade_settings`
 --
 
-CREATE TABLE `mdl_grade_settings` (
+CREATE TABLE if not exists `mdl_grade_settings` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `courseid` bigint(10) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -6357,7 +6361,7 @@ CREATE TABLE `mdl_grade_settings` (
 -- Table structure for table `mdl_gradingform_guide_comments`
 --
 
-CREATE TABLE `mdl_gradingform_guide_comments` (
+CREATE TABLE if not exists `mdl_gradingform_guide_comments` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `definitionid` bigint(10) NOT NULL,
   `sortorder` bigint(10) NOT NULL,
@@ -6373,7 +6377,7 @@ CREATE TABLE `mdl_gradingform_guide_comments` (
 -- Table structure for table `mdl_gradingform_guide_criteria`
 --
 
-CREATE TABLE `mdl_gradingform_guide_criteria` (
+CREATE TABLE if not exists `mdl_gradingform_guide_criteria` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `definitionid` bigint(10) NOT NULL,
   `sortorder` bigint(10) NOT NULL,
@@ -6393,7 +6397,7 @@ CREATE TABLE `mdl_gradingform_guide_criteria` (
 -- Table structure for table `mdl_gradingform_guide_fillings`
 --
 
-CREATE TABLE `mdl_gradingform_guide_fillings` (
+CREATE TABLE if not exists `mdl_gradingform_guide_fillings` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `instanceid` bigint(10) NOT NULL,
   `criterionid` bigint(10) NOT NULL,
@@ -6412,7 +6416,7 @@ CREATE TABLE `mdl_gradingform_guide_fillings` (
 -- Table structure for table `mdl_gradingform_rubric_criteria`
 --
 
-CREATE TABLE `mdl_gradingform_rubric_criteria` (
+CREATE TABLE if not exists `mdl_gradingform_rubric_criteria` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `definitionid` bigint(10) NOT NULL,
   `sortorder` bigint(10) NOT NULL,
@@ -6428,7 +6432,7 @@ CREATE TABLE `mdl_gradingform_rubric_criteria` (
 -- Table structure for table `mdl_gradingform_rubric_fillings`
 --
 
-CREATE TABLE `mdl_gradingform_rubric_fillings` (
+CREATE TABLE if not exists `mdl_gradingform_rubric_fillings` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `instanceid` bigint(10) NOT NULL,
   `criterionid` bigint(10) NOT NULL,
@@ -6448,7 +6452,7 @@ CREATE TABLE `mdl_gradingform_rubric_fillings` (
 -- Table structure for table `mdl_gradingform_rubric_levels`
 --
 
-CREATE TABLE `mdl_gradingform_rubric_levels` (
+CREATE TABLE if not exists `mdl_gradingform_rubric_levels` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `criterionid` bigint(10) NOT NULL,
   `score` decimal(10,5) NOT NULL,
@@ -6464,7 +6468,7 @@ CREATE TABLE `mdl_gradingform_rubric_levels` (
 -- Table structure for table `mdl_grading_areas`
 --
 
-CREATE TABLE `mdl_grading_areas` (
+CREATE TABLE if not exists `mdl_grading_areas` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `contextid` bigint(10) NOT NULL,
   `component` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -6481,7 +6485,7 @@ CREATE TABLE `mdl_grading_areas` (
 -- Table structure for table `mdl_grading_definitions`
 --
 
-CREATE TABLE `mdl_grading_definitions` (
+CREATE TABLE if not exists `mdl_grading_definitions` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `areaid` bigint(10) NOT NULL,
   `method` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -6509,7 +6513,7 @@ CREATE TABLE `mdl_grading_definitions` (
 -- Table structure for table `mdl_grading_instances`
 --
 
-CREATE TABLE `mdl_grading_instances` (
+CREATE TABLE if not exists `mdl_grading_instances` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `definitionid` bigint(10) NOT NULL,
   `raterid` bigint(10) NOT NULL,
@@ -6530,7 +6534,7 @@ CREATE TABLE `mdl_grading_instances` (
 -- Table structure for table `mdl_groupings`
 --
 
-CREATE TABLE `mdl_groupings` (
+CREATE TABLE if not exists `mdl_groupings` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `courseid` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -6551,7 +6555,7 @@ CREATE TABLE `mdl_groupings` (
 -- Table structure for table `mdl_groupings_groups`
 --
 
-CREATE TABLE `mdl_groupings_groups` (
+CREATE TABLE if not exists `mdl_groupings_groups` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `groupingid` bigint(10) NOT NULL DEFAULT '0',
   `groupid` bigint(10) NOT NULL DEFAULT '0',
@@ -6567,7 +6571,7 @@ CREATE TABLE `mdl_groupings_groups` (
 -- Table structure for table `mdl_groups`
 --
 
-CREATE TABLE `mdl_groups` (
+CREATE TABLE if not exists `mdl_groups` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `courseid` bigint(10) NOT NULL,
   `idnumber` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -6590,7 +6594,7 @@ CREATE TABLE `mdl_groups` (
 -- Table structure for table `mdl_groups_members`
 --
 
-CREATE TABLE `mdl_groups_members` (
+CREATE TABLE if not exists `mdl_groups_members` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `groupid` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -6608,7 +6612,7 @@ CREATE TABLE `mdl_groups_members` (
 -- Table structure for table `mdl_imscp`
 --
 
-CREATE TABLE `mdl_imscp` (
+CREATE TABLE if not exists `mdl_imscp` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -6628,7 +6632,7 @@ CREATE TABLE `mdl_imscp` (
 -- Table structure for table `mdl_label`
 --
 
-CREATE TABLE `mdl_label` (
+CREATE TABLE if not exists `mdl_label` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -6645,7 +6649,7 @@ CREATE TABLE `mdl_label` (
 -- Table structure for table `mdl_lesson`
 --
 
-CREATE TABLE `mdl_lesson` (
+CREATE TABLE if not exists `mdl_lesson` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -6697,7 +6701,7 @@ CREATE TABLE `mdl_lesson` (
 -- Table structure for table `mdl_lesson_answers`
 --
 
-CREATE TABLE `mdl_lesson_answers` (
+CREATE TABLE if not exists `mdl_lesson_answers` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `lessonid` bigint(10) NOT NULL DEFAULT '0',
   `pageid` bigint(10) NOT NULL DEFAULT '0',
@@ -6722,7 +6726,7 @@ CREATE TABLE `mdl_lesson_answers` (
 -- Table structure for table `mdl_lesson_attempts`
 --
 
-CREATE TABLE `mdl_lesson_attempts` (
+CREATE TABLE if not exists `mdl_lesson_attempts` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `lessonid` bigint(10) NOT NULL DEFAULT '0',
   `pageid` bigint(10) NOT NULL DEFAULT '0',
@@ -6745,7 +6749,7 @@ CREATE TABLE `mdl_lesson_attempts` (
 -- Table structure for table `mdl_lesson_branch`
 --
 
-CREATE TABLE `mdl_lesson_branch` (
+CREATE TABLE if not exists `mdl_lesson_branch` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `lessonid` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -6766,7 +6770,7 @@ CREATE TABLE `mdl_lesson_branch` (
 -- Table structure for table `mdl_lesson_grades`
 --
 
-CREATE TABLE `mdl_lesson_grades` (
+CREATE TABLE if not exists `mdl_lesson_grades` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `lessonid` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -6784,7 +6788,7 @@ CREATE TABLE `mdl_lesson_grades` (
 -- Table structure for table `mdl_lesson_overrides`
 --
 
-CREATE TABLE `mdl_lesson_overrides` (
+CREATE TABLE if not exists `mdl_lesson_overrides` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `lessonid` bigint(10) NOT NULL DEFAULT '0',
   `groupid` bigint(10) DEFAULT NULL,
@@ -6808,7 +6812,7 @@ CREATE TABLE `mdl_lesson_overrides` (
 -- Table structure for table `mdl_lesson_pages`
 --
 
-CREATE TABLE `mdl_lesson_pages` (
+CREATE TABLE if not exists `mdl_lesson_pages` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `lessonid` bigint(10) NOT NULL DEFAULT '0',
   `prevpageid` bigint(10) NOT NULL DEFAULT '0',
@@ -6832,7 +6836,7 @@ CREATE TABLE `mdl_lesson_pages` (
 -- Table structure for table `mdl_lesson_timer`
 --
 
-CREATE TABLE `mdl_lesson_timer` (
+CREATE TABLE if not exists `mdl_lesson_timer` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `lessonid` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -6850,7 +6854,7 @@ CREATE TABLE `mdl_lesson_timer` (
 -- Table structure for table `mdl_license`
 --
 
-CREATE TABLE `mdl_license` (
+CREATE TABLE if not exists `mdl_license` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `shortname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `fullname` longtext COLLATE utf8_unicode_ci,
@@ -6881,7 +6885,7 @@ INSERT INTO `mdl_license` (`id`, `shortname`, `fullname`, `source`, `enabled`, `
 -- Table structure for table `mdl_lock_db`
 --
 
-CREATE TABLE `mdl_lock_db` (
+CREATE TABLE if not exists `mdl_lock_db` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `resourcekey` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `expires` bigint(10) DEFAULT NULL,
@@ -6898,7 +6902,7 @@ CREATE TABLE `mdl_lock_db` (
 -- Table structure for table `mdl_log`
 --
 
-CREATE TABLE `mdl_log` (
+CREATE TABLE if not exists `mdl_log` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `time` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -6923,7 +6927,7 @@ CREATE TABLE `mdl_log` (
 -- Table structure for table `mdl_logstore_standard_log`
 --
 
-CREATE TABLE `mdl_logstore_standard_log` (
+CREATE TABLE if not exists `mdl_logstore_standard_log` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `eventname` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `component` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -6966,7 +6970,7 @@ INSERT INTO `mdl_logstore_standard_log` (`id`, `eventname`, `component`, `action
 -- Table structure for table `mdl_log_display`
 --
 
-CREATE TABLE `mdl_log_display` (
+CREATE TABLE if not exists `mdl_log_display` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `module` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `action` varchar(40) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -7176,7 +7180,7 @@ INSERT INTO `mdl_log_display` (`id`, `module`, `action`, `mtable`, `field`, `com
 -- Table structure for table `mdl_log_queries`
 --
 
-CREATE TABLE `mdl_log_queries` (
+CREATE TABLE if not exists `mdl_log_queries` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `qtype` mediumint(5) NOT NULL,
   `sqltext` longtext COLLATE utf8_unicode_ci NOT NULL,
@@ -7195,7 +7199,7 @@ CREATE TABLE `mdl_log_queries` (
 -- Table structure for table `mdl_lti`
 --
 
-CREATE TABLE `mdl_lti` (
+CREATE TABLE if not exists `mdl_lti` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -7232,7 +7236,7 @@ CREATE TABLE `mdl_lti` (
 -- Table structure for table `mdl_lti_submission`
 --
 
-CREATE TABLE `mdl_lti_submission` (
+CREATE TABLE if not exists `mdl_lti_submission` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `ltiid` bigint(10) NOT NULL,
   `userid` bigint(10) NOT NULL,
@@ -7252,7 +7256,7 @@ CREATE TABLE `mdl_lti_submission` (
 -- Table structure for table `mdl_lti_tool_proxies`
 --
 
-CREATE TABLE `mdl_lti_tool_proxies` (
+CREATE TABLE if not exists `mdl_lti_tool_proxies` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Tool Provider',
   `regurl` longtext COLLATE utf8_unicode_ci,
@@ -7276,7 +7280,7 @@ CREATE TABLE `mdl_lti_tool_proxies` (
 -- Table structure for table `mdl_lti_tool_settings`
 --
 
-CREATE TABLE `mdl_lti_tool_settings` (
+CREATE TABLE if not exists `mdl_lti_tool_settings` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `toolproxyid` bigint(10) NOT NULL,
   `course` bigint(10) DEFAULT NULL,
@@ -7296,7 +7300,7 @@ CREATE TABLE `mdl_lti_tool_settings` (
 -- Table structure for table `mdl_lti_types`
 --
 
-CREATE TABLE `mdl_lti_types` (
+CREATE TABLE if not exists `mdl_lti_types` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'basiclti Activity',
   `baseurl` longtext COLLATE utf8_unicode_ci NOT NULL,
@@ -7323,7 +7327,7 @@ CREATE TABLE `mdl_lti_types` (
 -- Table structure for table `mdl_lti_types_config`
 --
 
-CREATE TABLE `mdl_lti_types_config` (
+CREATE TABLE if not exists `mdl_lti_types_config` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `typeid` bigint(10) NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -7338,7 +7342,7 @@ CREATE TABLE `mdl_lti_types_config` (
 -- Table structure for table `mdl_message`
 --
 
-CREATE TABLE `mdl_message` (
+CREATE TABLE if not exists `mdl_message` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `useridfrom` bigint(10) NOT NULL DEFAULT '0',
   `useridto` bigint(10) NOT NULL DEFAULT '0',
@@ -7364,7 +7368,7 @@ CREATE TABLE `mdl_message` (
 -- Table structure for table `mdl_messageinbound_datakeys`
 --
 
-CREATE TABLE `mdl_messageinbound_datakeys` (
+CREATE TABLE if not exists `mdl_messageinbound_datakeys` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `handler` bigint(10) NOT NULL,
   `datavalue` bigint(10) NOT NULL,
@@ -7382,7 +7386,7 @@ CREATE TABLE `mdl_messageinbound_datakeys` (
 -- Table structure for table `mdl_messageinbound_handlers`
 --
 
-CREATE TABLE `mdl_messageinbound_handlers` (
+CREATE TABLE if not exists `mdl_messageinbound_handlers` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `component` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `classname` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -7408,7 +7412,7 @@ INSERT INTO `mdl_messageinbound_handlers` (`id`, `component`, `classname`, `defa
 -- Table structure for table `mdl_messageinbound_messagelist`
 --
 
-CREATE TABLE `mdl_messageinbound_messagelist` (
+CREATE TABLE if not exists `mdl_messageinbound_messagelist` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `messageid` longtext COLLATE utf8_unicode_ci NOT NULL,
   `userid` bigint(10) NOT NULL,
@@ -7424,7 +7428,7 @@ CREATE TABLE `mdl_messageinbound_messagelist` (
 -- Table structure for table `mdl_message_airnotifier_devices`
 --
 
-CREATE TABLE `mdl_message_airnotifier_devices` (
+CREATE TABLE if not exists `mdl_message_airnotifier_devices` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userdeviceid` bigint(10) NOT NULL,
   `enable` tinyint(1) NOT NULL DEFAULT '1',
@@ -7438,7 +7442,7 @@ CREATE TABLE `mdl_message_airnotifier_devices` (
 -- Table structure for table `mdl_message_contacts`
 --
 
-CREATE TABLE `mdl_message_contacts` (
+CREATE TABLE if not exists `mdl_message_contacts` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `contactid` bigint(10) NOT NULL DEFAULT '0',
@@ -7453,7 +7457,7 @@ CREATE TABLE `mdl_message_contacts` (
 -- Table structure for table `mdl_message_processors`
 --
 
-CREATE TABLE `mdl_message_processors` (
+CREATE TABLE if not exists `mdl_message_processors` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(166) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `enabled` tinyint(1) NOT NULL DEFAULT '1',
@@ -7476,7 +7480,7 @@ INSERT INTO `mdl_message_processors` (`id`, `name`, `enabled`) VALUES
 -- Table structure for table `mdl_message_providers`
 --
 
-CREATE TABLE `mdl_message_providers` (
+CREATE TABLE if not exists `mdl_message_providers` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `component` varchar(200) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -7525,7 +7529,7 @@ INSERT INTO `mdl_message_providers` (`id`, `name`, `component`, `capability`) VA
 -- Table structure for table `mdl_message_read`
 --
 
-CREATE TABLE `mdl_message_read` (
+CREATE TABLE if not exists `mdl_message_read` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `useridfrom` bigint(10) NOT NULL DEFAULT '0',
   `useridto` bigint(10) NOT NULL DEFAULT '0',
@@ -7553,7 +7557,7 @@ CREATE TABLE `mdl_message_read` (
 -- Table structure for table `mdl_message_working`
 --
 
-CREATE TABLE `mdl_message_working` (
+CREATE TABLE if not exists `mdl_message_working` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `unreadmessageid` bigint(10) NOT NULL,
   `processorid` bigint(10) NOT NULL,
@@ -7567,7 +7571,7 @@ CREATE TABLE `mdl_message_working` (
 -- Table structure for table `mdl_mnetservice_enrol_courses`
 --
 
-CREATE TABLE `mdl_mnetservice_enrol_courses` (
+CREATE TABLE if not exists `mdl_mnetservice_enrol_courses` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `hostid` bigint(10) NOT NULL,
   `remoteid` bigint(10) NOT NULL,
@@ -7592,7 +7596,7 @@ CREATE TABLE `mdl_mnetservice_enrol_courses` (
 -- Table structure for table `mdl_mnetservice_enrol_enrolments`
 --
 
-CREATE TABLE `mdl_mnetservice_enrol_enrolments` (
+CREATE TABLE if not exists `mdl_mnetservice_enrol_enrolments` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `hostid` bigint(10) NOT NULL,
   `userid` bigint(10) NOT NULL,
@@ -7611,7 +7615,7 @@ CREATE TABLE `mdl_mnetservice_enrol_enrolments` (
 -- Table structure for table `mdl_mnet_application`
 --
 
-CREATE TABLE `mdl_mnet_application` (
+CREATE TABLE if not exists `mdl_mnet_application` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `display_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -7635,7 +7639,7 @@ INSERT INTO `mdl_mnet_application` (`id`, `name`, `display_name`, `xmlrpc_server
 -- Table structure for table `mdl_mnet_host`
 --
 
-CREATE TABLE `mdl_mnet_host` (
+CREATE TABLE if not exists `mdl_mnet_host` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   `wwwroot` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -7669,7 +7673,7 @@ INSERT INTO `mdl_mnet_host` (`id`, `deleted`, `wwwroot`, `ip_address`, `name`, `
 -- Table structure for table `mdl_mnet_host2service`
 --
 
-CREATE TABLE `mdl_mnet_host2service` (
+CREATE TABLE if not exists `mdl_mnet_host2service` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `hostid` bigint(10) NOT NULL DEFAULT '0',
   `serviceid` bigint(10) NOT NULL DEFAULT '0',
@@ -7685,7 +7689,7 @@ CREATE TABLE `mdl_mnet_host2service` (
 -- Table structure for table `mdl_mnet_log`
 --
 
-CREATE TABLE `mdl_mnet_log` (
+CREATE TABLE if not exists `mdl_mnet_log` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `hostid` bigint(10) NOT NULL DEFAULT '0',
   `remoteid` bigint(10) NOT NULL DEFAULT '0',
@@ -7709,7 +7713,7 @@ CREATE TABLE `mdl_mnet_log` (
 -- Table structure for table `mdl_mnet_remote_rpc`
 --
 
-CREATE TABLE `mdl_mnet_remote_rpc` (
+CREATE TABLE if not exists `mdl_mnet_remote_rpc` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `functionname` varchar(40) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `xmlrpcpath` varchar(80) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -7747,7 +7751,7 @@ INSERT INTO `mdl_mnet_remote_rpc` (`id`, `functionname`, `xmlrpcpath`, `pluginty
 -- Table structure for table `mdl_mnet_remote_service2rpc`
 --
 
-CREATE TABLE `mdl_mnet_remote_service2rpc` (
+CREATE TABLE if not exists `mdl_mnet_remote_service2rpc` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `serviceid` bigint(10) NOT NULL DEFAULT '0',
   `rpcid` bigint(10) NOT NULL DEFAULT '0',
@@ -7783,7 +7787,7 @@ INSERT INTO `mdl_mnet_remote_service2rpc` (`id`, `serviceid`, `rpcid`) VALUES
 -- Table structure for table `mdl_mnet_rpc`
 --
 
-CREATE TABLE `mdl_mnet_rpc` (
+CREATE TABLE if not exists `mdl_mnet_rpc` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `functionname` varchar(40) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `xmlrpcpath` varchar(80) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -7826,7 +7830,7 @@ INSERT INTO `mdl_mnet_rpc` (`id`, `functionname`, `xmlrpcpath`, `plugintype`, `p
 -- Table structure for table `mdl_mnet_service`
 --
 
-CREATE TABLE `mdl_mnet_service` (
+CREATE TABLE if not exists `mdl_mnet_service` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(40) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `description` varchar(40) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -7851,7 +7855,7 @@ INSERT INTO `mdl_mnet_service` (`id`, `name`, `description`, `apiversion`, `offe
 -- Table structure for table `mdl_mnet_service2rpc`
 --
 
-CREATE TABLE `mdl_mnet_service2rpc` (
+CREATE TABLE if not exists `mdl_mnet_service2rpc` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `serviceid` bigint(10) NOT NULL DEFAULT '0',
   `rpcid` bigint(10) NOT NULL DEFAULT '0',
@@ -7886,7 +7890,7 @@ INSERT INTO `mdl_mnet_service2rpc` (`id`, `serviceid`, `rpcid`) VALUES
 -- Table structure for table `mdl_mnet_session`
 --
 
-CREATE TABLE `mdl_mnet_session` (
+CREATE TABLE if not exists `mdl_mnet_session` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `username` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -7906,7 +7910,7 @@ CREATE TABLE `mdl_mnet_session` (
 -- Table structure for table `mdl_mnet_sso_access_control`
 --
 
-CREATE TABLE `mdl_mnet_sso_access_control` (
+CREATE TABLE if not exists `mdl_mnet_sso_access_control` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `username` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `mnet_host_id` bigint(10) NOT NULL DEFAULT '0',
@@ -7921,7 +7925,7 @@ CREATE TABLE `mdl_mnet_sso_access_control` (
 -- Table structure for table `mdl_modules`
 --
 
-CREATE TABLE `mdl_modules` (
+CREATE TABLE if not exists `mdl_modules` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `cron` bigint(10) NOT NULL DEFAULT '0',
@@ -7966,7 +7970,7 @@ INSERT INTO `mdl_modules` (`id`, `name`, `cron`, `lastcron`, `search`, `visible`
 -- Table structure for table `mdl_my_pages`
 --
 
-CREATE TABLE `mdl_my_pages` (
+CREATE TABLE if not exists `mdl_my_pages` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) DEFAULT '0',
   `name` varchar(200) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -7991,7 +7995,7 @@ INSERT INTO `mdl_my_pages` (`id`, `userid`, `name`, `private`, `sortorder`) VALU
 -- Table structure for table `mdl_page`
 --
 
-CREATE TABLE `mdl_page` (
+CREATE TABLE if not exists `mdl_page` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -8015,7 +8019,7 @@ CREATE TABLE `mdl_page` (
 -- Table structure for table `mdl_portfolio_instance`
 --
 
-CREATE TABLE `mdl_portfolio_instance` (
+CREATE TABLE if not exists `mdl_portfolio_instance` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `plugin` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -8029,7 +8033,7 @@ CREATE TABLE `mdl_portfolio_instance` (
 -- Table structure for table `mdl_portfolio_instance_config`
 --
 
-CREATE TABLE `mdl_portfolio_instance_config` (
+CREATE TABLE if not exists `mdl_portfolio_instance_config` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `instance` bigint(10) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -8045,7 +8049,7 @@ CREATE TABLE `mdl_portfolio_instance_config` (
 -- Table structure for table `mdl_portfolio_instance_user`
 --
 
-CREATE TABLE `mdl_portfolio_instance_user` (
+CREATE TABLE if not exists `mdl_portfolio_instance_user` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `instance` bigint(10) NOT NULL,
   `userid` bigint(10) NOT NULL,
@@ -8062,7 +8066,7 @@ CREATE TABLE `mdl_portfolio_instance_user` (
 -- Table structure for table `mdl_portfolio_log`
 --
 
-CREATE TABLE `mdl_portfolio_log` (
+CREATE TABLE if not exists `mdl_portfolio_log` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL,
   `time` bigint(10) NOT NULL,
@@ -8085,7 +8089,7 @@ CREATE TABLE `mdl_portfolio_log` (
 -- Table structure for table `mdl_portfolio_mahara_queue`
 --
 
-CREATE TABLE `mdl_portfolio_mahara_queue` (
+CREATE TABLE if not exists `mdl_portfolio_mahara_queue` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `transferid` bigint(10) NOT NULL,
   `token` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -8100,7 +8104,7 @@ CREATE TABLE `mdl_portfolio_mahara_queue` (
 -- Table structure for table `mdl_portfolio_tempdata`
 --
 
-CREATE TABLE `mdl_portfolio_tempdata` (
+CREATE TABLE if not exists `mdl_portfolio_tempdata` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `data` longtext COLLATE utf8_unicode_ci,
   `expirytime` bigint(10) NOT NULL,
@@ -8118,7 +8122,7 @@ CREATE TABLE `mdl_portfolio_tempdata` (
 -- Table structure for table `mdl_post`
 --
 
-CREATE TABLE `mdl_post` (
+CREATE TABLE if not exists `mdl_post` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `module` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -8152,7 +8156,7 @@ CREATE TABLE `mdl_post` (
 -- Table structure for table `mdl_profiling`
 --
 
-CREATE TABLE `mdl_profiling` (
+CREATE TABLE if not exists `mdl_profiling` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `runid` varchar(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -8176,7 +8180,7 @@ CREATE TABLE `mdl_profiling` (
 -- Table structure for table `mdl_qtype_ddimageortext`
 --
 
-CREATE TABLE `mdl_qtype_ddimageortext` (
+CREATE TABLE if not exists `mdl_qtype_ddimageortext` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `questionid` bigint(10) NOT NULL DEFAULT '0',
   `shuffleanswers` smallint(4) NOT NULL DEFAULT '1',
@@ -8197,7 +8201,7 @@ CREATE TABLE `mdl_qtype_ddimageortext` (
 -- Table structure for table `mdl_qtype_ddimageortext_drags`
 --
 
-CREATE TABLE `mdl_qtype_ddimageortext_drags` (
+CREATE TABLE if not exists `mdl_qtype_ddimageortext_drags` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `questionid` bigint(10) NOT NULL DEFAULT '0',
   `no` bigint(10) NOT NULL DEFAULT '0',
@@ -8214,7 +8218,7 @@ CREATE TABLE `mdl_qtype_ddimageortext_drags` (
 -- Table structure for table `mdl_qtype_ddimageortext_drops`
 --
 
-CREATE TABLE `mdl_qtype_ddimageortext_drops` (
+CREATE TABLE if not exists `mdl_qtype_ddimageortext_drops` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `questionid` bigint(10) NOT NULL DEFAULT '0',
   `no` bigint(10) NOT NULL DEFAULT '0',
@@ -8232,7 +8236,7 @@ CREATE TABLE `mdl_qtype_ddimageortext_drops` (
 -- Table structure for table `mdl_qtype_ddmarker`
 --
 
-CREATE TABLE `mdl_qtype_ddmarker` (
+CREATE TABLE if not exists `mdl_qtype_ddmarker` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `questionid` bigint(10) NOT NULL DEFAULT '0',
   `shuffleanswers` smallint(4) NOT NULL DEFAULT '1',
@@ -8254,7 +8258,7 @@ CREATE TABLE `mdl_qtype_ddmarker` (
 -- Table structure for table `mdl_qtype_ddmarker_drags`
 --
 
-CREATE TABLE `mdl_qtype_ddmarker_drags` (
+CREATE TABLE if not exists `mdl_qtype_ddmarker_drags` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `questionid` bigint(10) NOT NULL DEFAULT '0',
   `no` bigint(10) NOT NULL DEFAULT '0',
@@ -8271,7 +8275,7 @@ CREATE TABLE `mdl_qtype_ddmarker_drags` (
 -- Table structure for table `mdl_qtype_ddmarker_drops`
 --
 
-CREATE TABLE `mdl_qtype_ddmarker_drops` (
+CREATE TABLE if not exists `mdl_qtype_ddmarker_drops` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `questionid` bigint(10) NOT NULL DEFAULT '0',
   `no` bigint(10) NOT NULL DEFAULT '0',
@@ -8288,7 +8292,7 @@ CREATE TABLE `mdl_qtype_ddmarker_drops` (
 -- Table structure for table `mdl_qtype_essay_options`
 --
 
-CREATE TABLE `mdl_qtype_essay_options` (
+CREATE TABLE if not exists `mdl_qtype_essay_options` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `questionid` bigint(10) NOT NULL,
   `responseformat` varchar(16) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'editor',
@@ -8310,7 +8314,7 @@ CREATE TABLE `mdl_qtype_essay_options` (
 -- Table structure for table `mdl_qtype_match_options`
 --
 
-CREATE TABLE `mdl_qtype_match_options` (
+CREATE TABLE if not exists `mdl_qtype_match_options` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `questionid` bigint(10) NOT NULL DEFAULT '0',
   `shuffleanswers` smallint(4) NOT NULL DEFAULT '1',
@@ -8331,7 +8335,7 @@ CREATE TABLE `mdl_qtype_match_options` (
 -- Table structure for table `mdl_qtype_match_subquestions`
 --
 
-CREATE TABLE `mdl_qtype_match_subquestions` (
+CREATE TABLE if not exists `mdl_qtype_match_subquestions` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `questionid` bigint(10) NOT NULL DEFAULT '0',
   `questiontext` longtext COLLATE utf8_unicode_ci NOT NULL,
@@ -8347,7 +8351,7 @@ CREATE TABLE `mdl_qtype_match_subquestions` (
 -- Table structure for table `mdl_qtype_multichoice_options`
 --
 
-CREATE TABLE `mdl_qtype_multichoice_options` (
+CREATE TABLE if not exists `mdl_qtype_multichoice_options` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `questionid` bigint(10) NOT NULL DEFAULT '0',
   `layout` smallint(4) NOT NULL DEFAULT '0',
@@ -8371,7 +8375,7 @@ CREATE TABLE `mdl_qtype_multichoice_options` (
 -- Table structure for table `mdl_qtype_randomsamatch_options`
 --
 
-CREATE TABLE `mdl_qtype_randomsamatch_options` (
+CREATE TABLE if not exists `mdl_qtype_randomsamatch_options` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `questionid` bigint(10) NOT NULL DEFAULT '0',
   `choose` bigint(10) NOT NULL DEFAULT '4',
@@ -8393,7 +8397,7 @@ CREATE TABLE `mdl_qtype_randomsamatch_options` (
 -- Table structure for table `mdl_qtype_shortanswer_options`
 --
 
-CREATE TABLE `mdl_qtype_shortanswer_options` (
+CREATE TABLE if not exists `mdl_qtype_shortanswer_options` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `questionid` bigint(10) NOT NULL DEFAULT '0',
   `usecase` tinyint(2) NOT NULL DEFAULT '0',
@@ -8407,7 +8411,7 @@ CREATE TABLE `mdl_qtype_shortanswer_options` (
 -- Table structure for table `mdl_question`
 --
 
-CREATE TABLE `mdl_question` (
+CREATE TABLE if not exists `mdl_question` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `category` bigint(10) NOT NULL DEFAULT '0',
   `parent` bigint(10) NOT NULL DEFAULT '0',
@@ -8441,7 +8445,7 @@ CREATE TABLE `mdl_question` (
 -- Table structure for table `mdl_question_answers`
 --
 
-CREATE TABLE `mdl_question_answers` (
+CREATE TABLE if not exists `mdl_question_answers` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `question` bigint(10) NOT NULL DEFAULT '0',
   `answer` longtext COLLATE utf8_unicode_ci NOT NULL,
@@ -8459,7 +8463,7 @@ CREATE TABLE `mdl_question_answers` (
 -- Table structure for table `mdl_question_attempts`
 --
 
-CREATE TABLE `mdl_question_attempts` (
+CREATE TABLE if not exists `mdl_question_attempts` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `questionusageid` bigint(10) NOT NULL,
   `slot` bigint(10) NOT NULL,
@@ -8487,7 +8491,7 @@ CREATE TABLE `mdl_question_attempts` (
 -- Table structure for table `mdl_question_attempt_steps`
 --
 
-CREATE TABLE `mdl_question_attempt_steps` (
+CREATE TABLE if not exists `mdl_question_attempt_steps` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `questionattemptid` bigint(10) NOT NULL,
   `sequencenumber` bigint(10) NOT NULL,
@@ -8507,7 +8511,7 @@ CREATE TABLE `mdl_question_attempt_steps` (
 -- Table structure for table `mdl_question_attempt_step_data`
 --
 
-CREATE TABLE `mdl_question_attempt_step_data` (
+CREATE TABLE if not exists `mdl_question_attempt_step_data` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `attemptstepid` bigint(10) NOT NULL,
   `name` varchar(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -8523,7 +8527,7 @@ CREATE TABLE `mdl_question_attempt_step_data` (
 -- Table structure for table `mdl_question_calculated`
 --
 
-CREATE TABLE `mdl_question_calculated` (
+CREATE TABLE if not exists `mdl_question_calculated` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `question` bigint(10) NOT NULL DEFAULT '0',
   `answer` bigint(10) NOT NULL DEFAULT '0',
@@ -8542,7 +8546,7 @@ CREATE TABLE `mdl_question_calculated` (
 -- Table structure for table `mdl_question_calculated_options`
 --
 
-CREATE TABLE `mdl_question_calculated_options` (
+CREATE TABLE if not exists `mdl_question_calculated_options` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `question` bigint(10) NOT NULL DEFAULT '0',
   `synchronize` tinyint(2) NOT NULL DEFAULT '0',
@@ -8566,7 +8570,7 @@ CREATE TABLE `mdl_question_calculated_options` (
 -- Table structure for table `mdl_question_categories`
 --
 
-CREATE TABLE `mdl_question_categories` (
+CREATE TABLE if not exists `mdl_question_categories` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `contextid` bigint(10) NOT NULL DEFAULT '0',
@@ -8586,7 +8590,7 @@ CREATE TABLE `mdl_question_categories` (
 -- Table structure for table `mdl_question_datasets`
 --
 
-CREATE TABLE `mdl_question_datasets` (
+CREATE TABLE if not exists `mdl_question_datasets` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `question` bigint(10) NOT NULL DEFAULT '0',
   `datasetdefinition` bigint(10) NOT NULL DEFAULT '0',
@@ -8602,7 +8606,7 @@ CREATE TABLE `mdl_question_datasets` (
 -- Table structure for table `mdl_question_dataset_definitions`
 --
 
-CREATE TABLE `mdl_question_dataset_definitions` (
+CREATE TABLE if not exists `mdl_question_dataset_definitions` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `category` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -8619,7 +8623,7 @@ CREATE TABLE `mdl_question_dataset_definitions` (
 -- Table structure for table `mdl_question_dataset_items`
 --
 
-CREATE TABLE `mdl_question_dataset_items` (
+CREATE TABLE if not exists `mdl_question_dataset_items` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `definition` bigint(10) NOT NULL DEFAULT '0',
   `itemnumber` bigint(10) NOT NULL DEFAULT '0',
@@ -8634,7 +8638,7 @@ CREATE TABLE `mdl_question_dataset_items` (
 -- Table structure for table `mdl_question_ddwtos`
 --
 
-CREATE TABLE `mdl_question_ddwtos` (
+CREATE TABLE if not exists `mdl_question_ddwtos` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `questionid` bigint(10) NOT NULL DEFAULT '0',
   `shuffleanswers` smallint(4) NOT NULL DEFAULT '1',
@@ -8655,7 +8659,7 @@ CREATE TABLE `mdl_question_ddwtos` (
 -- Table structure for table `mdl_question_gapselect`
 --
 
-CREATE TABLE `mdl_question_gapselect` (
+CREATE TABLE if not exists `mdl_question_gapselect` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `questionid` bigint(10) NOT NULL DEFAULT '0',
   `shuffleanswers` smallint(4) NOT NULL DEFAULT '1',
@@ -8676,7 +8680,7 @@ CREATE TABLE `mdl_question_gapselect` (
 -- Table structure for table `mdl_question_hints`
 --
 
-CREATE TABLE `mdl_question_hints` (
+CREATE TABLE if not exists `mdl_question_hints` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `questionid` bigint(10) NOT NULL,
   `hint` longtext COLLATE utf8_unicode_ci NOT NULL,
@@ -8694,7 +8698,7 @@ CREATE TABLE `mdl_question_hints` (
 -- Table structure for table `mdl_question_multianswer`
 --
 
-CREATE TABLE `mdl_question_multianswer` (
+CREATE TABLE if not exists `mdl_question_multianswer` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `question` bigint(10) NOT NULL DEFAULT '0',
   `sequence` longtext COLLATE utf8_unicode_ci NOT NULL,
@@ -8708,7 +8712,7 @@ CREATE TABLE `mdl_question_multianswer` (
 -- Table structure for table `mdl_question_numerical`
 --
 
-CREATE TABLE `mdl_question_numerical` (
+CREATE TABLE if not exists `mdl_question_numerical` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `question` bigint(10) NOT NULL DEFAULT '0',
   `answer` bigint(10) NOT NULL DEFAULT '0',
@@ -8724,7 +8728,7 @@ CREATE TABLE `mdl_question_numerical` (
 -- Table structure for table `mdl_question_numerical_options`
 --
 
-CREATE TABLE `mdl_question_numerical_options` (
+CREATE TABLE if not exists `mdl_question_numerical_options` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `question` bigint(10) NOT NULL DEFAULT '0',
   `showunits` smallint(4) NOT NULL DEFAULT '0',
@@ -8741,7 +8745,7 @@ CREATE TABLE `mdl_question_numerical_options` (
 -- Table structure for table `mdl_question_numerical_units`
 --
 
-CREATE TABLE `mdl_question_numerical_units` (
+CREATE TABLE if not exists `mdl_question_numerical_units` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `question` bigint(10) NOT NULL DEFAULT '0',
   `multiplier` decimal(40,20) NOT NULL DEFAULT '1.00000000000000000000',
@@ -8757,7 +8761,7 @@ CREATE TABLE `mdl_question_numerical_units` (
 -- Table structure for table `mdl_question_response_analysis`
 --
 
-CREATE TABLE `mdl_question_response_analysis` (
+CREATE TABLE if not exists `mdl_question_response_analysis` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `hashcode` varchar(40) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `whichtries` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -8777,7 +8781,7 @@ CREATE TABLE `mdl_question_response_analysis` (
 -- Table structure for table `mdl_question_response_count`
 --
 
-CREATE TABLE `mdl_question_response_count` (
+CREATE TABLE if not exists `mdl_question_response_count` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `analysisid` bigint(10) NOT NULL,
   `try` bigint(10) NOT NULL,
@@ -8792,7 +8796,7 @@ CREATE TABLE `mdl_question_response_count` (
 -- Table structure for table `mdl_question_statistics`
 --
 
-CREATE TABLE `mdl_question_statistics` (
+CREATE TABLE if not exists `mdl_question_statistics` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `hashcode` varchar(40) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `timemodified` bigint(10) NOT NULL,
@@ -8820,7 +8824,7 @@ CREATE TABLE `mdl_question_statistics` (
 -- Table structure for table `mdl_question_truefalse`
 --
 
-CREATE TABLE `mdl_question_truefalse` (
+CREATE TABLE if not exists `mdl_question_truefalse` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `question` bigint(10) NOT NULL DEFAULT '0',
   `trueanswer` bigint(10) NOT NULL DEFAULT '0',
@@ -8835,7 +8839,7 @@ CREATE TABLE `mdl_question_truefalse` (
 -- Table structure for table `mdl_question_usages`
 --
 
-CREATE TABLE `mdl_question_usages` (
+CREATE TABLE if not exists `mdl_question_usages` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `contextid` bigint(10) NOT NULL,
   `component` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -8850,7 +8854,7 @@ CREATE TABLE `mdl_question_usages` (
 -- Table structure for table `mdl_quiz`
 --
 
-CREATE TABLE `mdl_quiz` (
+CREATE TABLE if not exists `mdl_quiz` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -8901,7 +8905,7 @@ CREATE TABLE `mdl_quiz` (
 -- Table structure for table `mdl_quiz_attempts`
 --
 
-CREATE TABLE `mdl_quiz_attempts` (
+CREATE TABLE if not exists `mdl_quiz_attempts` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `quiz` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -8930,7 +8934,7 @@ CREATE TABLE `mdl_quiz_attempts` (
 -- Table structure for table `mdl_quiz_feedback`
 --
 
-CREATE TABLE `mdl_quiz_feedback` (
+CREATE TABLE if not exists `mdl_quiz_feedback` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `quizid` bigint(10) NOT NULL DEFAULT '0',
   `feedbacktext` longtext COLLATE utf8_unicode_ci NOT NULL,
@@ -8947,7 +8951,7 @@ CREATE TABLE `mdl_quiz_feedback` (
 -- Table structure for table `mdl_quiz_grades`
 --
 
-CREATE TABLE `mdl_quiz_grades` (
+CREATE TABLE if not exists `mdl_quiz_grades` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `quiz` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -8964,7 +8968,7 @@ CREATE TABLE `mdl_quiz_grades` (
 -- Table structure for table `mdl_quiz_overrides`
 --
 
-CREATE TABLE `mdl_quiz_overrides` (
+CREATE TABLE if not exists `mdl_quiz_overrides` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `quiz` bigint(10) NOT NULL DEFAULT '0',
   `groupid` bigint(10) DEFAULT NULL,
@@ -8986,7 +8990,7 @@ CREATE TABLE `mdl_quiz_overrides` (
 -- Table structure for table `mdl_quiz_overview_regrades`
 --
 
-CREATE TABLE `mdl_quiz_overview_regrades` (
+CREATE TABLE if not exists `mdl_quiz_overview_regrades` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `questionusageid` bigint(10) NOT NULL,
   `slot` bigint(10) NOT NULL,
@@ -9003,7 +9007,7 @@ CREATE TABLE `mdl_quiz_overview_regrades` (
 -- Table structure for table `mdl_quiz_reports`
 --
 
-CREATE TABLE `mdl_quiz_reports` (
+CREATE TABLE if not exists `mdl_quiz_reports` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `displayorder` bigint(10) NOT NULL,
@@ -9028,7 +9032,7 @@ INSERT INTO `mdl_quiz_reports` (`id`, `name`, `displayorder`, `capability`) VALU
 -- Table structure for table `mdl_quiz_sections`
 --
 
-CREATE TABLE `mdl_quiz_sections` (
+CREATE TABLE if not exists `mdl_quiz_sections` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `quizid` bigint(10) NOT NULL,
   `firstslot` bigint(10) NOT NULL,
@@ -9045,7 +9049,7 @@ CREATE TABLE `mdl_quiz_sections` (
 -- Table structure for table `mdl_quiz_slots`
 --
 
-CREATE TABLE `mdl_quiz_slots` (
+CREATE TABLE if not exists `mdl_quiz_slots` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `slot` bigint(10) NOT NULL,
   `quizid` bigint(10) NOT NULL DEFAULT '0',
@@ -9065,7 +9069,7 @@ CREATE TABLE `mdl_quiz_slots` (
 -- Table structure for table `mdl_quiz_statistics`
 --
 
-CREATE TABLE `mdl_quiz_statistics` (
+CREATE TABLE if not exists `mdl_quiz_statistics` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `hashcode` varchar(40) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `whichattempts` smallint(4) NOT NULL,
@@ -9094,7 +9098,7 @@ CREATE TABLE `mdl_quiz_statistics` (
 -- Table structure for table `mdl_rating`
 --
 
-CREATE TABLE `mdl_rating` (
+CREATE TABLE if not exists `mdl_rating` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `contextid` bigint(10) NOT NULL,
   `component` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -9117,7 +9121,7 @@ CREATE TABLE `mdl_rating` (
 -- Table structure for table `mdl_registration_hubs`
 --
 
-CREATE TABLE `mdl_registration_hubs` (
+CREATE TABLE if not exists `mdl_registration_hubs` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `hubname` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -9134,7 +9138,7 @@ CREATE TABLE `mdl_registration_hubs` (
 -- Table structure for table `mdl_repository`
 --
 
-CREATE TABLE `mdl_repository` (
+CREATE TABLE if not exists `mdl_repository` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `visible` tinyint(1) DEFAULT '1',
@@ -9161,7 +9165,7 @@ INSERT INTO `mdl_repository` (`id`, `type`, `visible`, `sortorder`) VALUES
 -- Table structure for table `mdl_repository_instances`
 --
 
-CREATE TABLE `mdl_repository_instances` (
+CREATE TABLE if not exists `mdl_repository_instances` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `typeid` bigint(10) NOT NULL,
@@ -9194,7 +9198,7 @@ INSERT INTO `mdl_repository_instances` (`id`, `name`, `typeid`, `userid`, `conte
 -- Table structure for table `mdl_repository_instance_config`
 --
 
-CREATE TABLE `mdl_repository_instance_config` (
+CREATE TABLE if not exists `mdl_repository_instance_config` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `instanceid` bigint(10) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -9208,7 +9212,7 @@ CREATE TABLE `mdl_repository_instance_config` (
 -- Table structure for table `mdl_resource`
 --
 
-CREATE TABLE `mdl_resource` (
+CREATE TABLE if not exists `mdl_resource` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -9232,7 +9236,7 @@ CREATE TABLE `mdl_resource` (
 -- Table structure for table `mdl_resource_old`
 --
 
-CREATE TABLE `mdl_resource_old` (
+CREATE TABLE if not exists `mdl_resource_old` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -9260,7 +9264,7 @@ CREATE TABLE `mdl_resource_old` (
 -- Table structure for table `mdl_role`
 --
 
-CREATE TABLE `mdl_role` (
+CREATE TABLE if not exists `mdl_role` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `shortname` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -9292,7 +9296,7 @@ INSERT INTO `mdl_role` (`id`, `name`, `shortname`, `description`, `sortorder`, `
 -- Table structure for table `mdl_role_allow_assign`
 --
 
-CREATE TABLE `mdl_role_allow_assign` (
+CREATE TABLE if not exists `mdl_role_allow_assign` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `roleid` bigint(10) NOT NULL DEFAULT '0',
   `allowassign` bigint(10) NOT NULL DEFAULT '0',
@@ -9321,7 +9325,7 @@ INSERT INTO `mdl_role_allow_assign` (`id`, `roleid`, `allowassign`) VALUES
 -- Table structure for table `mdl_role_allow_override`
 --
 
-CREATE TABLE `mdl_role_allow_override` (
+CREATE TABLE if not exists `mdl_role_allow_override` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `roleid` bigint(10) NOT NULL DEFAULT '0',
   `allowoverride` bigint(10) NOT NULL DEFAULT '0',
@@ -9354,7 +9358,7 @@ INSERT INTO `mdl_role_allow_override` (`id`, `roleid`, `allowoverride`) VALUES
 -- Table structure for table `mdl_role_allow_switch`
 --
 
-CREATE TABLE `mdl_role_allow_switch` (
+CREATE TABLE if not exists `mdl_role_allow_switch` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `roleid` bigint(10) NOT NULL,
   `allowswitch` bigint(10) NOT NULL,
@@ -9385,7 +9389,7 @@ INSERT INTO `mdl_role_allow_switch` (`id`, `roleid`, `allowswitch`) VALUES
 -- Table structure for table `mdl_role_assignments`
 --
 
-CREATE TABLE `mdl_role_assignments` (
+CREATE TABLE if not exists `mdl_role_assignments` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `roleid` bigint(10) NOT NULL DEFAULT '0',
   `contextid` bigint(10) NOT NULL DEFAULT '0',
@@ -9411,7 +9415,7 @@ CREATE TABLE `mdl_role_assignments` (
 -- Table structure for table `mdl_role_capabilities`
 --
 
-CREATE TABLE `mdl_role_capabilities` (
+CREATE TABLE if not exists `mdl_role_capabilities` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `contextid` bigint(10) NOT NULL DEFAULT '0',
   `roleid` bigint(10) NOT NULL DEFAULT '0',
@@ -10606,7 +10610,7 @@ INSERT INTO `mdl_role_capabilities` (`id`, `contextid`, `roleid`, `capability`, 
 -- Table structure for table `mdl_role_context_levels`
 --
 
-CREATE TABLE `mdl_role_context_levels` (
+CREATE TABLE if not exists `mdl_role_context_levels` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `roleid` bigint(10) NOT NULL,
   `contextlevel` bigint(10) NOT NULL,
@@ -10638,7 +10642,7 @@ INSERT INTO `mdl_role_context_levels` (`id`, `roleid`, `contextlevel`) VALUES
 -- Table structure for table `mdl_role_names`
 --
 
-CREATE TABLE `mdl_role_names` (
+CREATE TABLE if not exists `mdl_role_names` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `roleid` bigint(10) NOT NULL DEFAULT '0',
   `contextid` bigint(10) NOT NULL DEFAULT '0',
@@ -10655,7 +10659,7 @@ CREATE TABLE `mdl_role_names` (
 -- Table structure for table `mdl_role_sortorder`
 --
 
-CREATE TABLE `mdl_role_sortorder` (
+CREATE TABLE if not exists `mdl_role_sortorder` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL,
   `roleid` bigint(10) NOT NULL,
@@ -10674,7 +10678,7 @@ CREATE TABLE `mdl_role_sortorder` (
 -- Table structure for table `mdl_scale`
 --
 
-CREATE TABLE `mdl_scale` (
+CREATE TABLE if not exists `mdl_scale` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `courseid` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -10693,7 +10697,7 @@ CREATE TABLE `mdl_scale` (
 -- Table structure for table `mdl_scale_history`
 --
 
-CREATE TABLE `mdl_scale_history` (
+CREATE TABLE if not exists `mdl_scale_history` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `action` bigint(10) NOT NULL DEFAULT '0',
   `oldid` bigint(10) NOT NULL,
@@ -10718,7 +10722,7 @@ CREATE TABLE `mdl_scale_history` (
 -- Table structure for table `mdl_scorm`
 --
 
-CREATE TABLE `mdl_scorm` (
+CREATE TABLE if not exists `mdl_scorm` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -10769,7 +10773,7 @@ CREATE TABLE `mdl_scorm` (
 -- Table structure for table `mdl_scorm_aicc_session`
 --
 
-CREATE TABLE `mdl_scorm_aicc_session` (
+CREATE TABLE if not exists `mdl_scorm_aicc_session` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `scormid` bigint(10) NOT NULL DEFAULT '0',
@@ -10793,7 +10797,7 @@ CREATE TABLE `mdl_scorm_aicc_session` (
 -- Table structure for table `mdl_scorm_scoes`
 --
 
-CREATE TABLE `mdl_scorm_scoes` (
+CREATE TABLE if not exists `mdl_scorm_scoes` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `scorm` bigint(10) NOT NULL DEFAULT '0',
   `manifest` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -10814,7 +10818,7 @@ CREATE TABLE `mdl_scorm_scoes` (
 -- Table structure for table `mdl_scorm_scoes_data`
 --
 
-CREATE TABLE `mdl_scorm_scoes_data` (
+CREATE TABLE if not exists `mdl_scorm_scoes_data` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `scoid` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -10829,7 +10833,7 @@ CREATE TABLE `mdl_scorm_scoes_data` (
 -- Table structure for table `mdl_scorm_scoes_track`
 --
 
-CREATE TABLE `mdl_scorm_scoes_track` (
+CREATE TABLE if not exists `mdl_scorm_scoes_track` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `scormid` bigint(10) NOT NULL DEFAULT '0',
@@ -10852,7 +10856,7 @@ CREATE TABLE `mdl_scorm_scoes_track` (
 -- Table structure for table `mdl_scorm_seq_mapinfo`
 --
 
-CREATE TABLE `mdl_scorm_seq_mapinfo` (
+CREATE TABLE if not exists `mdl_scorm_seq_mapinfo` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `scoid` bigint(10) NOT NULL DEFAULT '0',
   `objectiveid` bigint(10) NOT NULL DEFAULT '0',
@@ -10873,7 +10877,7 @@ CREATE TABLE `mdl_scorm_seq_mapinfo` (
 -- Table structure for table `mdl_scorm_seq_objective`
 --
 
-CREATE TABLE `mdl_scorm_seq_objective` (
+CREATE TABLE if not exists `mdl_scorm_seq_objective` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `scoid` bigint(10) NOT NULL DEFAULT '0',
   `primaryobj` tinyint(1) NOT NULL DEFAULT '0',
@@ -10891,7 +10895,7 @@ CREATE TABLE `mdl_scorm_seq_objective` (
 -- Table structure for table `mdl_scorm_seq_rolluprule`
 --
 
-CREATE TABLE `mdl_scorm_seq_rolluprule` (
+CREATE TABLE if not exists `mdl_scorm_seq_rolluprule` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `scoid` bigint(10) NOT NULL DEFAULT '0',
   `childactivityset` varchar(15) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -10910,7 +10914,7 @@ CREATE TABLE `mdl_scorm_seq_rolluprule` (
 -- Table structure for table `mdl_scorm_seq_rolluprulecond`
 --
 
-CREATE TABLE `mdl_scorm_seq_rolluprulecond` (
+CREATE TABLE if not exists `mdl_scorm_seq_rolluprulecond` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `scoid` bigint(10) NOT NULL DEFAULT '0',
   `rollupruleid` bigint(10) NOT NULL DEFAULT '0',
@@ -10928,7 +10932,7 @@ CREATE TABLE `mdl_scorm_seq_rolluprulecond` (
 -- Table structure for table `mdl_scorm_seq_rulecond`
 --
 
-CREATE TABLE `mdl_scorm_seq_rulecond` (
+CREATE TABLE if not exists `mdl_scorm_seq_rulecond` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `scoid` bigint(10) NOT NULL DEFAULT '0',
   `ruleconditionsid` bigint(10) NOT NULL DEFAULT '0',
@@ -10948,7 +10952,7 @@ CREATE TABLE `mdl_scorm_seq_rulecond` (
 -- Table structure for table `mdl_scorm_seq_ruleconds`
 --
 
-CREATE TABLE `mdl_scorm_seq_ruleconds` (
+CREATE TABLE if not exists `mdl_scorm_seq_ruleconds` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `scoid` bigint(10) NOT NULL DEFAULT '0',
   `conditioncombination` varchar(3) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'all',
@@ -10965,7 +10969,7 @@ CREATE TABLE `mdl_scorm_seq_ruleconds` (
 -- Table structure for table `mdl_sessions`
 --
 
-CREATE TABLE `mdl_sessions` (
+CREATE TABLE if not exists `mdl_sessions` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `state` bigint(10) NOT NULL DEFAULT '0',
   `sid` varchar(128) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -10996,7 +11000,7 @@ INSERT INTO `mdl_sessions` (`id`, `state`, `sid`, `userid`, `sessdata`, `timecre
 -- Table structure for table `mdl_stats_daily`
 --
 
-CREATE TABLE `mdl_stats_daily` (
+CREATE TABLE if not exists `mdl_stats_daily` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `courseid` bigint(10) NOT NULL DEFAULT '0',
   `timeend` bigint(10) NOT NULL DEFAULT '0',
@@ -11016,7 +11020,7 @@ CREATE TABLE `mdl_stats_daily` (
 -- Table structure for table `mdl_stats_monthly`
 --
 
-CREATE TABLE `mdl_stats_monthly` (
+CREATE TABLE if not exists `mdl_stats_monthly` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `courseid` bigint(10) NOT NULL DEFAULT '0',
   `timeend` bigint(10) NOT NULL DEFAULT '0',
@@ -11036,7 +11040,7 @@ CREATE TABLE `mdl_stats_monthly` (
 -- Table structure for table `mdl_stats_user_daily`
 --
 
-CREATE TABLE `mdl_stats_user_daily` (
+CREATE TABLE if not exists `mdl_stats_user_daily` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `courseid` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -11058,7 +11062,7 @@ CREATE TABLE `mdl_stats_user_daily` (
 -- Table structure for table `mdl_stats_user_monthly`
 --
 
-CREATE TABLE `mdl_stats_user_monthly` (
+CREATE TABLE if not exists `mdl_stats_user_monthly` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `courseid` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -11080,7 +11084,7 @@ CREATE TABLE `mdl_stats_user_monthly` (
 -- Table structure for table `mdl_stats_user_weekly`
 --
 
-CREATE TABLE `mdl_stats_user_weekly` (
+CREATE TABLE if not exists `mdl_stats_user_weekly` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `courseid` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -11102,7 +11106,7 @@ CREATE TABLE `mdl_stats_user_weekly` (
 -- Table structure for table `mdl_stats_weekly`
 --
 
-CREATE TABLE `mdl_stats_weekly` (
+CREATE TABLE if not exists `mdl_stats_weekly` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `courseid` bigint(10) NOT NULL DEFAULT '0',
   `timeend` bigint(10) NOT NULL DEFAULT '0',
@@ -11122,7 +11126,7 @@ CREATE TABLE `mdl_stats_weekly` (
 -- Table structure for table `mdl_survey`
 --
 
-CREATE TABLE `mdl_survey` (
+CREATE TABLE if not exists `mdl_survey` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `template` bigint(10) NOT NULL DEFAULT '0',
@@ -11154,7 +11158,7 @@ INSERT INTO `mdl_survey` (`id`, `course`, `template`, `days`, `timecreated`, `ti
 -- Table structure for table `mdl_survey_analysis`
 --
 
-CREATE TABLE `mdl_survey_analysis` (
+CREATE TABLE if not exists `mdl_survey_analysis` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `survey` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
@@ -11170,7 +11174,7 @@ CREATE TABLE `mdl_survey_analysis` (
 -- Table structure for table `mdl_survey_answers`
 --
 
-CREATE TABLE `mdl_survey_answers` (
+CREATE TABLE if not exists `mdl_survey_answers` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `survey` bigint(10) NOT NULL DEFAULT '0',
@@ -11190,7 +11194,7 @@ CREATE TABLE `mdl_survey_answers` (
 -- Table structure for table `mdl_survey_questions`
 --
 
-CREATE TABLE `mdl_survey_questions` (
+CREATE TABLE if not exists `mdl_survey_questions` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `text` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `shorttext` varchar(30) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -11286,7 +11290,7 @@ INSERT INTO `mdl_survey_questions` (`id`, `text`, `shorttext`, `multi`, `intro`,
 -- Table structure for table `mdl_tag`
 --
 
-CREATE TABLE `mdl_tag` (
+CREATE TABLE if not exists `mdl_tag` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -11307,7 +11311,7 @@ CREATE TABLE `mdl_tag` (
 -- Table structure for table `mdl_tag_correlation`
 --
 
-CREATE TABLE `mdl_tag_correlation` (
+CREATE TABLE if not exists `mdl_tag_correlation` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `tagid` bigint(10) NOT NULL,
   `correlatedtags` longtext COLLATE utf8_unicode_ci NOT NULL,
@@ -11321,7 +11325,7 @@ CREATE TABLE `mdl_tag_correlation` (
 -- Table structure for table `mdl_tag_instance`
 --
 
-CREATE TABLE `mdl_tag_instance` (
+CREATE TABLE if not exists `mdl_tag_instance` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `tagid` bigint(10) NOT NULL,
   `component` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -11344,7 +11348,7 @@ CREATE TABLE `mdl_tag_instance` (
 -- Table structure for table `mdl_task_adhoc`
 --
 
-CREATE TABLE `mdl_task_adhoc` (
+CREATE TABLE if not exists `mdl_task_adhoc` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `component` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `classname` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -11362,7 +11366,7 @@ CREATE TABLE `mdl_task_adhoc` (
 -- Table structure for table `mdl_task_scheduled`
 --
 
-CREATE TABLE `mdl_task_scheduled` (
+CREATE TABLE if not exists `mdl_task_scheduled` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `component` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `classname` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -11435,7 +11439,7 @@ INSERT INTO `mdl_task_scheduled` (`id`, `component`, `classname`, `lastruntime`,
 -- Table structure for table `mdl_tool_customlang`
 --
 
-CREATE TABLE `mdl_tool_customlang` (
+CREATE TABLE if not exists `mdl_tool_customlang` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `lang` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `componentid` bigint(10) NOT NULL,
@@ -11458,7 +11462,7 @@ CREATE TABLE `mdl_tool_customlang` (
 -- Table structure for table `mdl_tool_customlang_components`
 --
 
-CREATE TABLE `mdl_tool_customlang_components` (
+CREATE TABLE if not exists `mdl_tool_customlang_components` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `version` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -11471,7 +11475,7 @@ CREATE TABLE `mdl_tool_customlang_components` (
 -- Table structure for table `mdl_tool_monitor_events`
 --
 
-CREATE TABLE `mdl_tool_monitor_events` (
+CREATE TABLE if not exists `mdl_tool_monitor_events` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `eventname` varchar(254) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `contextid` bigint(10) NOT NULL,
@@ -11489,7 +11493,7 @@ CREATE TABLE `mdl_tool_monitor_events` (
 -- Table structure for table `mdl_tool_monitor_history`
 --
 
-CREATE TABLE `mdl_tool_monitor_history` (
+CREATE TABLE if not exists `mdl_tool_monitor_history` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `sid` bigint(10) NOT NULL,
   `userid` bigint(10) NOT NULL,
@@ -11505,7 +11509,7 @@ CREATE TABLE `mdl_tool_monitor_history` (
 -- Table structure for table `mdl_tool_monitor_rules`
 --
 
-CREATE TABLE `mdl_tool_monitor_rules` (
+CREATE TABLE if not exists `mdl_tool_monitor_rules` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `description` longtext COLLATE utf8_unicode_ci,
   `descriptionformat` tinyint(1) NOT NULL,
@@ -11531,7 +11535,7 @@ CREATE TABLE `mdl_tool_monitor_rules` (
 -- Table structure for table `mdl_tool_monitor_subscriptions`
 --
 
-CREATE TABLE `mdl_tool_monitor_subscriptions` (
+CREATE TABLE if not exists `mdl_tool_monitor_subscriptions` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `courseid` bigint(10) NOT NULL,
   `ruleid` bigint(10) NOT NULL,
@@ -11550,7 +11554,7 @@ CREATE TABLE `mdl_tool_monitor_subscriptions` (
 -- Table structure for table `mdl_upgrade_log`
 --
 
-CREATE TABLE `mdl_upgrade_log` (
+CREATE TABLE if not exists `mdl_upgrade_log` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `type` bigint(10) NOT NULL,
   `plugin` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -12666,7 +12670,7 @@ INSERT INTO `mdl_upgrade_log` (`id`, `type`, `plugin`, `version`, `targetversion
 -- Table structure for table `mdl_url`
 --
 
-CREATE TABLE `mdl_url` (
+CREATE TABLE if not exists `mdl_url` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -12687,7 +12691,7 @@ CREATE TABLE `mdl_url` (
 -- Table structure for table `mdl_user`
 --
 
-CREATE TABLE `mdl_user` (
+CREATE TABLE if not exists `mdl_user` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `auth` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'manual',
   `confirmed` tinyint(1) NOT NULL DEFAULT '0',
@@ -12773,7 +12777,7 @@ INSERT INTO `mdl_user` (`id`, `auth`, `confirmed`, `policyagreed`, `deleted`, `s
 -- Table structure for table `mdl_user_devices`
 --
 
-CREATE TABLE `mdl_user_devices` (
+CREATE TABLE if not exists `mdl_user_devices` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `appid` varchar(128) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -12797,7 +12801,7 @@ CREATE TABLE `mdl_user_devices` (
 -- Table structure for table `mdl_user_enrolments`
 --
 
-CREATE TABLE `mdl_user_enrolments` (
+CREATE TABLE if not exists `mdl_user_enrolments` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `status` bigint(10) NOT NULL DEFAULT '0',
   `enrolid` bigint(10) NOT NULL,
@@ -12820,7 +12824,7 @@ CREATE TABLE `mdl_user_enrolments` (
 -- Table structure for table `mdl_user_info_category`
 --
 
-CREATE TABLE `mdl_user_info_category` (
+CREATE TABLE if not exists `mdl_user_info_category` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `sortorder` bigint(10) NOT NULL DEFAULT '0',
@@ -12833,7 +12837,7 @@ CREATE TABLE `mdl_user_info_category` (
 -- Table structure for table `mdl_user_info_data`
 --
 
-CREATE TABLE `mdl_user_info_data` (
+CREATE TABLE if not exists `mdl_user_info_data` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `fieldid` bigint(10) NOT NULL DEFAULT '0',
@@ -12849,7 +12853,7 @@ CREATE TABLE `mdl_user_info_data` (
 -- Table structure for table `mdl_user_info_field`
 --
 
-CREATE TABLE `mdl_user_info_field` (
+CREATE TABLE if not exists `mdl_user_info_field` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `shortname` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'shortname',
   `name` longtext COLLATE utf8_unicode_ci NOT NULL,
@@ -12879,7 +12883,7 @@ CREATE TABLE `mdl_user_info_field` (
 -- Table structure for table `mdl_user_lastaccess`
 --
 
-CREATE TABLE `mdl_user_lastaccess` (
+CREATE TABLE if not exists `mdl_user_lastaccess` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `courseid` bigint(10) NOT NULL DEFAULT '0',
@@ -12896,7 +12900,7 @@ CREATE TABLE `mdl_user_lastaccess` (
 -- Table structure for table `mdl_user_password_history`
 --
 
-CREATE TABLE `mdl_user_password_history` (
+CREATE TABLE if not exists `mdl_user_password_history` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL,
   `hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -12911,7 +12915,7 @@ CREATE TABLE `mdl_user_password_history` (
 -- Table structure for table `mdl_user_password_resets`
 --
 
-CREATE TABLE `mdl_user_password_resets` (
+CREATE TABLE if not exists `mdl_user_password_resets` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL,
   `timerequested` bigint(10) NOT NULL,
@@ -12927,7 +12931,7 @@ CREATE TABLE `mdl_user_password_resets` (
 -- Table structure for table `mdl_user_preferences`
 --
 
-CREATE TABLE `mdl_user_preferences` (
+CREATE TABLE if not exists `mdl_user_preferences` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `userid` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -12951,7 +12955,7 @@ INSERT INTO `mdl_user_preferences` (`id`, `userid`, `name`, `value`) VALUES
 -- Table structure for table `mdl_user_private_key`
 --
 
-CREATE TABLE `mdl_user_private_key` (
+CREATE TABLE if not exists `mdl_user_private_key` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `script` varchar(128) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `value` varchar(128) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -12971,7 +12975,7 @@ CREATE TABLE `mdl_user_private_key` (
 -- Table structure for table `mdl_wiki`
 --
 
-CREATE TABLE `mdl_wiki` (
+CREATE TABLE if not exists `mdl_wiki` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Wiki',
@@ -12995,7 +12999,7 @@ CREATE TABLE `mdl_wiki` (
 -- Table structure for table `mdl_wiki_links`
 --
 
-CREATE TABLE `mdl_wiki_links` (
+CREATE TABLE if not exists `mdl_wiki_links` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `subwikiid` bigint(10) NOT NULL DEFAULT '0',
   `frompageid` bigint(10) NOT NULL DEFAULT '0',
@@ -13012,7 +13016,7 @@ CREATE TABLE `mdl_wiki_links` (
 -- Table structure for table `mdl_wiki_locks`
 --
 
-CREATE TABLE `mdl_wiki_locks` (
+CREATE TABLE if not exists `mdl_wiki_locks` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `pageid` bigint(10) NOT NULL DEFAULT '0',
   `sectionname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -13027,7 +13031,7 @@ CREATE TABLE `mdl_wiki_locks` (
 -- Table structure for table `mdl_wiki_pages`
 --
 
-CREATE TABLE `mdl_wiki_pages` (
+CREATE TABLE if not exists `mdl_wiki_pages` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `subwikiid` bigint(10) NOT NULL DEFAULT '0',
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'title',
@@ -13049,7 +13053,7 @@ CREATE TABLE `mdl_wiki_pages` (
 -- Table structure for table `mdl_wiki_subwikis`
 --
 
-CREATE TABLE `mdl_wiki_subwikis` (
+CREATE TABLE if not exists `mdl_wiki_subwikis` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `wikiid` bigint(10) NOT NULL DEFAULT '0',
   `groupid` bigint(10) NOT NULL DEFAULT '0',
@@ -13065,7 +13069,7 @@ CREATE TABLE `mdl_wiki_subwikis` (
 -- Table structure for table `mdl_wiki_synonyms`
 --
 
-CREATE TABLE `mdl_wiki_synonyms` (
+CREATE TABLE if not exists `mdl_wiki_synonyms` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `subwikiid` bigint(10) NOT NULL DEFAULT '0',
   `pageid` bigint(10) NOT NULL DEFAULT '0',
@@ -13080,7 +13084,7 @@ CREATE TABLE `mdl_wiki_synonyms` (
 -- Table structure for table `mdl_wiki_versions`
 --
 
-CREATE TABLE `mdl_wiki_versions` (
+CREATE TABLE if not exists `mdl_wiki_versions` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `pageid` bigint(10) NOT NULL DEFAULT '0',
   `content` longtext COLLATE utf8_unicode_ci NOT NULL,
@@ -13098,7 +13102,7 @@ CREATE TABLE `mdl_wiki_versions` (
 -- Table structure for table `mdl_workshop`
 --
 
-CREATE TABLE `mdl_workshop` (
+CREATE TABLE if not exists `mdl_workshop` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -13142,7 +13146,7 @@ CREATE TABLE `mdl_workshop` (
 -- Table structure for table `mdl_workshopallocation_scheduled`
 --
 
-CREATE TABLE `mdl_workshopallocation_scheduled` (
+CREATE TABLE if not exists `mdl_workshopallocation_scheduled` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `workshopid` bigint(10) NOT NULL,
   `enabled` tinyint(2) NOT NULL DEFAULT '0',
@@ -13162,7 +13166,7 @@ CREATE TABLE `mdl_workshopallocation_scheduled` (
 -- Table structure for table `mdl_workshopeval_best_settings`
 --
 
-CREATE TABLE `mdl_workshopeval_best_settings` (
+CREATE TABLE if not exists `mdl_workshopeval_best_settings` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `workshopid` bigint(10) NOT NULL,
   `comparison` smallint(3) DEFAULT '5',
@@ -13176,7 +13180,7 @@ CREATE TABLE `mdl_workshopeval_best_settings` (
 -- Table structure for table `mdl_workshopform_accumulative`
 --
 
-CREATE TABLE `mdl_workshopform_accumulative` (
+CREATE TABLE if not exists `mdl_workshopform_accumulative` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `workshopid` bigint(10) NOT NULL,
   `sort` bigint(10) DEFAULT '0',
@@ -13194,7 +13198,7 @@ CREATE TABLE `mdl_workshopform_accumulative` (
 -- Table structure for table `mdl_workshopform_comments`
 --
 
-CREATE TABLE `mdl_workshopform_comments` (
+CREATE TABLE if not exists `mdl_workshopform_comments` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `workshopid` bigint(10) NOT NULL,
   `sort` bigint(10) DEFAULT '0',
@@ -13210,7 +13214,7 @@ CREATE TABLE `mdl_workshopform_comments` (
 -- Table structure for table `mdl_workshopform_numerrors`
 --
 
-CREATE TABLE `mdl_workshopform_numerrors` (
+CREATE TABLE if not exists `mdl_workshopform_numerrors` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `workshopid` bigint(10) NOT NULL,
   `sort` bigint(10) DEFAULT '0',
@@ -13230,7 +13234,7 @@ CREATE TABLE `mdl_workshopform_numerrors` (
 -- Table structure for table `mdl_workshopform_numerrors_map`
 --
 
-CREATE TABLE `mdl_workshopform_numerrors_map` (
+CREATE TABLE if not exists `mdl_workshopform_numerrors_map` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `workshopid` bigint(10) NOT NULL,
   `nonegative` bigint(10) NOT NULL,
@@ -13246,7 +13250,7 @@ CREATE TABLE `mdl_workshopform_numerrors_map` (
 -- Table structure for table `mdl_workshopform_rubric`
 --
 
-CREATE TABLE `mdl_workshopform_rubric` (
+CREATE TABLE if not exists `mdl_workshopform_rubric` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `workshopid` bigint(10) NOT NULL,
   `sort` bigint(10) DEFAULT '0',
@@ -13262,7 +13266,7 @@ CREATE TABLE `mdl_workshopform_rubric` (
 -- Table structure for table `mdl_workshopform_rubric_config`
 --
 
-CREATE TABLE `mdl_workshopform_rubric_config` (
+CREATE TABLE if not exists `mdl_workshopform_rubric_config` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `workshopid` bigint(10) NOT NULL,
   `layout` varchar(30) COLLATE utf8_unicode_ci DEFAULT 'list',
@@ -13276,7 +13280,7 @@ CREATE TABLE `mdl_workshopform_rubric_config` (
 -- Table structure for table `mdl_workshopform_rubric_levels`
 --
 
-CREATE TABLE `mdl_workshopform_rubric_levels` (
+CREATE TABLE if not exists `mdl_workshopform_rubric_levels` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `dimensionid` bigint(10) NOT NULL,
   `grade` decimal(10,5) NOT NULL,
@@ -13292,7 +13296,7 @@ CREATE TABLE `mdl_workshopform_rubric_levels` (
 -- Table structure for table `mdl_workshop_aggregations`
 --
 
-CREATE TABLE `mdl_workshop_aggregations` (
+CREATE TABLE if not exists `mdl_workshop_aggregations` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `workshopid` bigint(10) NOT NULL,
   `userid` bigint(10) NOT NULL,
@@ -13310,7 +13314,7 @@ CREATE TABLE `mdl_workshop_aggregations` (
 -- Table structure for table `mdl_workshop_assessments`
 --
 
-CREATE TABLE `mdl_workshop_assessments` (
+CREATE TABLE if not exists `mdl_workshop_assessments` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `submissionid` bigint(10) NOT NULL,
   `reviewerid` bigint(10) NOT NULL,
@@ -13338,7 +13342,7 @@ CREATE TABLE `mdl_workshop_assessments` (
 -- Table structure for table `mdl_workshop_assessments_old`
 --
 
-CREATE TABLE `mdl_workshop_assessments_old` (
+CREATE TABLE if not exists `mdl_workshop_assessments_old` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `workshopid` bigint(10) NOT NULL DEFAULT '0',
   `submissionid` bigint(10) NOT NULL DEFAULT '0',
@@ -13369,7 +13373,7 @@ CREATE TABLE `mdl_workshop_assessments_old` (
 -- Table structure for table `mdl_workshop_comments_old`
 --
 
-CREATE TABLE `mdl_workshop_comments_old` (
+CREATE TABLE if not exists `mdl_workshop_comments_old` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `workshopid` bigint(10) NOT NULL DEFAULT '0',
   `assessmentid` bigint(10) NOT NULL DEFAULT '0',
@@ -13392,7 +13396,7 @@ CREATE TABLE `mdl_workshop_comments_old` (
 -- Table structure for table `mdl_workshop_elements_old`
 --
 
-CREATE TABLE `mdl_workshop_elements_old` (
+CREATE TABLE if not exists `mdl_workshop_elements_old` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `workshopid` bigint(10) NOT NULL DEFAULT '0',
   `elementno` smallint(3) NOT NULL DEFAULT '0',
@@ -13414,7 +13418,7 @@ CREATE TABLE `mdl_workshop_elements_old` (
 -- Table structure for table `mdl_workshop_grades`
 --
 
-CREATE TABLE `mdl_workshop_grades` (
+CREATE TABLE if not exists `mdl_workshop_grades` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `assessmentid` bigint(10) NOT NULL,
   `strategy` varchar(30) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -13433,7 +13437,7 @@ CREATE TABLE `mdl_workshop_grades` (
 -- Table structure for table `mdl_workshop_grades_old`
 --
 
-CREATE TABLE `mdl_workshop_grades_old` (
+CREATE TABLE if not exists `mdl_workshop_grades_old` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `workshopid` bigint(10) NOT NULL DEFAULT '0',
   `assessmentid` bigint(10) NOT NULL DEFAULT '0',
@@ -13453,7 +13457,7 @@ CREATE TABLE `mdl_workshop_grades_old` (
 -- Table structure for table `mdl_workshop_old`
 --
 
-CREATE TABLE `mdl_workshop_old` (
+CREATE TABLE if not exists `mdl_workshop_old` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `course` bigint(10) NOT NULL DEFAULT '0',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -13498,7 +13502,7 @@ CREATE TABLE `mdl_workshop_old` (
 -- Table structure for table `mdl_workshop_rubrics_old`
 --
 
-CREATE TABLE `mdl_workshop_rubrics_old` (
+CREATE TABLE if not exists `mdl_workshop_rubrics_old` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `workshopid` bigint(10) NOT NULL DEFAULT '0',
   `elementno` bigint(10) NOT NULL DEFAULT '0',
@@ -13516,7 +13520,7 @@ CREATE TABLE `mdl_workshop_rubrics_old` (
 -- Table structure for table `mdl_workshop_stockcomments_old`
 --
 
-CREATE TABLE `mdl_workshop_stockcomments_old` (
+CREATE TABLE if not exists `mdl_workshop_stockcomments_old` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `workshopid` bigint(10) NOT NULL DEFAULT '0',
   `elementno` bigint(10) NOT NULL DEFAULT '0',
@@ -13533,7 +13537,7 @@ CREATE TABLE `mdl_workshop_stockcomments_old` (
 -- Table structure for table `mdl_workshop_submissions`
 --
 
-CREATE TABLE `mdl_workshop_submissions` (
+CREATE TABLE if not exists `mdl_workshop_submissions` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `workshopid` bigint(10) NOT NULL,
   `example` tinyint(2) DEFAULT '0',
@@ -13565,7 +13569,7 @@ CREATE TABLE `mdl_workshop_submissions` (
 -- Table structure for table `mdl_workshop_submissions_old`
 --
 
-CREATE TABLE `mdl_workshop_submissions_old` (
+CREATE TABLE if not exists `mdl_workshop_submissions_old` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `workshopid` bigint(10) NOT NULL DEFAULT '0',
   `userid` bigint(10) NOT NULL DEFAULT '0',
