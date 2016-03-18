@@ -1,8 +1,8 @@
 FROM php:5.6-apache
 
-ENV CURRENTTIME "10:21"
+ENV Version 2
 
-RUN apt-get update && apt-get install -y libpng12-dev libjpeg-dev git && rm -rf /var/lib/apt/lists/* \
+RUN apt-get update && apt-get install -y telnet mysql-client libpng12-dev libjpeg-dev git && rm -rf /var/lib/apt/lists/* \
   && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
   && docker-php-ext-install gd mysqli
 
