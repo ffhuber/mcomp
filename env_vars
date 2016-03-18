@@ -2,7 +2,6 @@ MYSQL_ROOT_PASSWORD=Pearson
 MYSQL_DATABASE=moodle
 MYSQL_USER=moodle
 MYSQL_PASSWORD=Pearson
-MYSQL_HOST=mysql
 MDL_USERNAME=padmin
 MDL_PASSWORD=password
 MDL_HOSTNAME=www.pulse.pearson.com
