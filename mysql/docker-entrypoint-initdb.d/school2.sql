@@ -17,12 +17,12 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `moodle303`
+-- Database: `school2`
 --
 
-create database if not exists moodle;
+create database if not exists school2;
 
-use `moodle`;
+use `school2`;
 
 -- --------------------------------------------------------
 
@@ -7664,7 +7664,7 @@ CREATE TABLE if not exists `mdl_mnet_host` (
 --
 
 INSERT INTO `mdl_mnet_host` (`id`, `deleted`, `wwwroot`, `ip_address`, `name`, `public_key`, `public_key_expires`, `transport`, `portno`, `last_connect_time`, `last_log_id`, `force_theme`, `theme`, `applicationid`, `sslverification`) VALUES
-(1, 0, 'http://localhost/moodle303', '::1', '', '', 0, 0, 0, 0, 0, 0, NULL, 1, 0),
+(1, 0, 'http://www.pulse.pearson.com/moodle/school2', '::1', '', '', 0, 0, 0, 0, 0, 0, NULL, 1, 0),
 (2, 0, '', '', 'All Hosts', '', 0, 0, 0, 0, 0, 0, NULL, 1, 0);
 
 -- --------------------------------------------------------
