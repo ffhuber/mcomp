@@ -13,20 +13,20 @@ services:
   ports:
    - "8080:80"
   depends_on:
-   - nfs
+#   - nfs
    - mysql
   env_file:
    - ./env_vars
- nfs:
-  build: nfs
-  ports:
-  - "111:111"
-  - "2049:2049"
- redis:
-  image: redis
-  expose:
-  - "6379"
-  ports:
-  - "6379:6379"
-  env_file:
-    - ./env_vars
+# nfs:
+#  build: nfs
+#  ports:
+#  - "111:111"
+#  - "2049:2049"
+# redis:
+#  image: redis
+#  expose:
+#  - "6379"
+#  ports:
+#  - "6379:6379"
+#  env_file:
+#    - ./env_vars
