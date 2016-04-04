@@ -21,6 +21,7 @@ SET time_zone = "+00:00";
 --
 
 create database if not exists school2;
+grant all on school1.* to 'moodle'@'%' identified by 'Pearson';
 
 use `school2`;
 

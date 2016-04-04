@@ -21,6 +21,7 @@ SET time_zone = "+00:00";
 --
 
 create database if not exists school1;
+grant all on school1.* to 'moodle'@'%' identified by 'Pearson';
 
 use `school1`;
 
@@ -2016,8 +2017,8 @@ INSERT INTO `mdl_config` (`id`, `name`, `value`) VALUES
 (348, 'enablesafebrowserintegration', '0'),
 (349, 'dndallowtextandlinks', '0'),
 (350, 'enablecssoptimiser', '0'),
-(351, 'debug', '0'),
-(352, 'debugdisplay', '0'),
+(351, 'debug', '1'),
+(352, 'debugdisplay', '1'),
 (353, 'debugsmtp', '0'),
 (354, 'perfdebug', '7'),
 (355, 'debugstringids', '0'),
@@ -2581,8 +2582,8 @@ INSERT INTO `mdl_config_log` (`id`, `userid`, `timemodified`, `plugin`, `name`, 
 (416, 0, 1458146958, NULL, 'enablesafebrowserintegration', '0', NULL),
 (417, 0, 1458146958, NULL, 'dndallowtextandlinks', '0', NULL),
 (418, 0, 1458146959, NULL, 'enablecssoptimiser', '0', NULL),
-(419, 0, 1458146959, NULL, 'debug', '0', NULL),
-(420, 0, 1458146959, NULL, 'debugdisplay', '0', NULL),
+(419, 0, 1458146959, NULL, 'debug', '1', NULL),
+(420, 0, 1458146959, NULL, 'debugdisplay', '1', NULL),
 (421, 0, 1458146959, NULL, 'debugsmtp', '0', NULL),
 (422, 0, 1458146959, NULL, 'perfdebug', '7', NULL),
 (423, 0, 1458146959, NULL, 'debugstringids', '0', NULL),
@@ -2844,7 +2845,7 @@ INSERT INTO `mdl_config_log` (`id`, `userid`, `timemodified`, `plugin`, `name`, 
 (679, 2, 1458147057, 'scorm', 'aicchacpkeepsessiondata', '1', NULL),
 (680, 2, 1458147057, 'scorm', 'aiccuserid', '1', NULL),
 (681, 2, 1458147057, 'scorm', 'forcejavascript', '1', NULL),
-(682, 2, 1458147057, 'scorm', 'allowapidebug', '0', NULL),
+(682, 2, 1458147057, 'scorm', 'allowapidebug', '1', NULL),
 (683, 2, 1458147057, 'scorm', 'apidebugmask', '.*', NULL),
 (684, 2, 1458147057, 'scorm', 'protectpackagedownloads', '0', NULL),
 (685, 2, 1458147057, 'url', 'framesize', '130', NULL),
