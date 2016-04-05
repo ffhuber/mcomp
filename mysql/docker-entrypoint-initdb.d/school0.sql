@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Database: `school2`
+-- Database: `school0`
 --
 
-create database if not exists school2;
-grant all on school2.* to 'moodle'@'%' identified by 'Pearson';
+create database if not exists school0;
+grant all on school0.* to 'moodle'@'%' identified by 'Pearson';
 
-use `school2`;
+use `school0`;
 
 -- --------------------------------------------------------
 
