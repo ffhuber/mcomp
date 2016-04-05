@@ -28,11 +28,11 @@ $proxy = 'false';
 ### 1     DB
 
 $url = $_SERVER['REQUEST_URI'];
-$schoolid = explode("/", $url, 2)[2];
+$schoolid = explode("/", $url)[2];
 
 #print "schoolid: $schoolid<br>";
 
 $CFG->dbname=$schoolid;
-$CFG->dataroot="/dataroot/$schoolid";
-$CFG->wwwroot="http://www.pulse.pearson.com/moodle/$schoolid";
+$CFG->dataroot="/var/moodledata/$schoolid";
+$CFG->wwwroot="http://www.pulse.pearson.com:8080/moodle/$schoolid";
 require_once(dirname(__FILE__) . '/lib/setup.php');
