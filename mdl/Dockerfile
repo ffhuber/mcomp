@@ -20,6 +20,7 @@ RUN a2enmod rewrite
 RUN a2ensite pulse
 
 RUN mkdir /var/moodledata
+RUN mkdir /var/moodledata/school0
 RUN mkdir /var/moodledata/school1
 RUN mkdir /var/moodledata/school2
 RUN chown -R www-data:www-data /var/www/html/moodle /var/moodledata; chmod -R 777 /var/moodledata
