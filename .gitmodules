@@ -1,0 +1,3 @@
+[submodule "mdl/moodle-pulse"]
+	path = mdl/moodle-pulse
+	url = https://github.com/PearsonTech/moodle-pulse.git
