@@ -11,6 +11,9 @@ RUN \
   curl -sL https://download.moodle.org/download.php/direct/stable30/moodle-3.0.3.tgz | \ 
   tar -zxf - -C /var/www/html
 
+COPY moodle-pulse/gab /var/www/html/moodle/auth/gab
+COPY moodle-pulse/pulsews /var/www/html/moodle/local/pulsews
+COPY moodle-pulse/scormupload /var/www/html/moodle/local/pulse
 COPY config.php /var/www/html/moodle
 COPY apache2.conf /etc/apache2/apache2.conf
 COPY test.php /var/www/html/moodle
