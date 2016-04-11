@@ -20,7 +20,7 @@ Usage:
    (Note: login credentials are on moodle dashboard)
 
 6) Access docker container shell, eg:
-   docker exec -it mcomp_mdl_1
+   docker exec -it mcomp_mdl_1<br>
    docker exec -it mcomp_mysql_1
    
 7) Edit files temporary inside dockercontainer (with vi):
