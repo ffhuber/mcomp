@@ -18,6 +18,7 @@ COPY config.php /var/www/html/moodle
 COPY apache2.conf /etc/apache2/apache2.conf
 COPY test.php /var/www/html/moodle
 COPY pulse.conf /etc/apache2/sites-available/
+COPY docker-php-ext-gd.ini /usr/local/etc/php/conf.d
 
 RUN a2enmod rewrite
 RUN a2ensite pulse

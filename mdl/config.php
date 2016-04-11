@@ -21,18 +21,15 @@ $CFG->directorypermissions = 02777;
 $CFG->admin = 'admin';
 
 ### TENANCY MANAGEMENT  ########################
-$myhost = "";
-$proxy = 'false';
-### REDIS ARRAY ##################################
-### 0     DB user
-### 1     DB
-
 $url = $_SERVER['REQUEST_URI'];
 $schoolid = explode("/", $url)[2];
-
-#print "schoolid: $schoolid<br>";
-
+# print "schoolid: $schoolid<br>";
 $CFG->dbname=$schoolid;
 $CFG->dataroot="/var/moodledata/$schoolid";
 $CFG->wwwroot="http://www.pulse.pearson.com:8080/moodle/$schoolid";
+
+#### SYSTEM SETTINGS  ########################
+$CFG->regenloginsession = true;
+
+
 require_once(dirname(__FILE__) . '/lib/setup.php');
